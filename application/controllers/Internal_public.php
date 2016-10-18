@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Internal_public extends CI_Controller {
+class internal_public extends CI_Controller {
     
     public function __construct() {
         parent::__construct();
@@ -11,6 +11,11 @@ class Internal_public extends CI_Controller {
         $this->load->view('public/login');
     }
     
+    public function registro_alumno(){
+        
+    }
+
+
     public function login(){
         $user = $this->input->post("user");
         $pass = $this->input->post("pass");
