@@ -1,0 +1,12 @@
+label.error {
+    height:17px;
+    color: red;
+    margin-left:9px;
+    padding:1px 5px 0px 5px;
+    font-size:small;
+}
+input.error{
+    border: 1px solid red;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

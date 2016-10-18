@@ -14,4 +14,9 @@ class Login_model extends CI_Model {
         $query = $this->db->get('usuarios');
         return $query->row();
     }
+    
+    public function insert_usuario($data){
+        $this->db->insert('usuarios', $data);
+    }
+    
 }

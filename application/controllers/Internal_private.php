@@ -6,6 +6,6 @@ class internal_private extends CI_Controller {
     }
     
     public function index(){
-        
+        $this->load->view("private/admin/index");
     }
 }
