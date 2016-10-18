@@ -208,7 +208,7 @@
                         <?php if (isset($error)) echo '<br><div style ="color:#FF0000;">' . $error . '</div>'; ?>
 
                         <center>
-                            <button type="submit" class="btn btn-success">Enviar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                             <a href="<?php echo base_url() ?>"><button type="button" id="cerrarModalAdd" class="btn btn-danger">Atras</button></a>
                         </center>
 

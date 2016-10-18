@@ -43,13 +43,38 @@ $(document).ready(function () {
 
         }
     });
+    
+    var validatorAddJefe = $('#formRegJefeCarrera').validate({
+        rules: {
+            nombre: {
+                required: true
+            },
+            apellidoPaterno: {
+                required: true
+            },
+            apellidoMaterno: {
+                required: true
+            },
+            carrera: {
+                required: true
+            },
+            numero_control: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            telefono_residente: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+            password2: {
+                equalTo: "#password"
+            }
 
-    $("#cerrarModalAdd").click(function () {
-        validatorAdd.resetForm();
-        $('#modalAgregar').modal('hide');
-        document.getElementById("claveAdd").value = "";
-        document.getElementById("nombreAdd").value = "";
-        document.getElementById("ubicacionAdd").value = "";
-        document.getElementById("telefonoAdd").value = "";
+        }
     });
+
 });
