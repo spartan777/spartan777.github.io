@@ -150,6 +150,7 @@
     <script src="<?php echo base_url() ?>assets/js/jquery.validate.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/messages_es.js"></script>
     <script src="<?php echo base_url() ?>assets/js/validateForm.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/funcionesModal.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
            document.getElementById("<?php echo $nav; ?>").className = "active"; 

@@ -76,5 +76,20 @@ $(document).ready(function () {
 
         }
     });
+    
+    var validatorCambiarJefe = $('#rutaCambiarJefe').validate({
+        rules: {
+            password2: {
+                equalTo: "#passwordCambiar"
+            }
 
+        }
+    });
+    
+    $("#closeModalCambiarJefe").click(function(){
+        validatorCambiarJefe.resetForm();
+	$('#modalCambiarJefeCarrera').modal('hide');
+        document.getElementById("passwordCambiar").value = "";
+        document.getElementById("password2Cambiar").value = "";
+    });
 });

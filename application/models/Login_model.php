@@ -19,4 +19,13 @@ class Login_model extends CI_Model {
         $this->db->insert('usuarios', $data);
     }
     
+    public function delete_jefe_carrera($clave_acceso){
+        $this->db->where('no_control', $clave_acceso);
+        $this->db->delete('usuarios');
+    }
+    
+    public function update_pass_jefe_carrera($clave_acceso, $data){
+        $this->db->where('no_control',$clave_acceso);
+    	$this->db->update('usuarios',$data);
+    }
 }
