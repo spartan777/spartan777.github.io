@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/views/private/jefe/index.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/views/private/alumno/index.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/views/public/login.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/controllers/Internal_private.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/views/private/admin/index.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/models/Login_model.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/controllers/Internal_public.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/config/database.php</file>
+            <file>file:/C:/wamp/www/SistemaResidencia/application/config/config.php</file>
+        </group>
+    </open-files>
 </project-private>

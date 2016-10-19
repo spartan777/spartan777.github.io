@@ -1,8 +1,8 @@
-<form class="form-horizontal" id="formRegJefeCarrera" method="post" action="<?php echo base_url() ?>internal_private/registrar_jefe_carrera">
+<form class="form-horizontal" id="formRegJefeCarrera" method="post" action="<?php echo base_url() ?>internal_private/edit_jefe_carrera/<?php echo $clave_acceso; ?>">
     <div class="form-group">
         <label class="col-sm-2 control-label" for="numero_control">Clave de acceso:</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="numero_control" id="numero_control" value="<?php if (isset($clave_acceso)) echo $clave_acceso; ?>" placeholder="Ingrese la clave de acceso.">
+            <input type="text" readonly="" class="form-control" name="numero_control" id="numero_control" value="<?php if (isset($clave_acceso)) echo $clave_acceso; ?>" placeholder="Ingrese la clave de acceso.">
         </div>
     </div>
     <div class="form-group">
@@ -58,18 +58,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="inputPassword3">Password</label>
-        <div class="col-sm-6">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="password2">Repetir Password</label>
-        <div class="col-sm-6">
-            <input type="password" class="form-control" name="password2" id="password2" placeholder="Repetir Password">
-        </div>
-    </div>
     <?php if (isset($error)) echo '<br><div style ="color:#FF0000;">' . $error . '</div>'; ?>
 
     <center>

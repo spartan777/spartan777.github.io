@@ -23,7 +23,8 @@ class internal_private extends CI_Controller {
             'content' => "private/admin/jefe_carrera_tmp",
             'title'   => "Sistema residencias | Jefes de Carrera.",
             'barraTitulo' => "Jefes de Carrera",
-            'nav'     => "navJefe"
+            'nav'     => "navJefe",
+            'registros' => $this->jefe_carrera_model->get_all_jefes()
         );
         $this->load->view("private/admin/index",$data);
     }
@@ -63,5 +64,60 @@ class internal_private extends CI_Controller {
             $data['error'] = "El usuario ya esta registrado.";
             $this->load->view('internal_private/add_jefe_carrera', $data);
         }
+    }
+    
+    public function editar_jefe_carrera(){
+        $clave_acceso = $this->uri->segment(3);
+        $resultados = $this->jefe_carrera_model->buscar_id($clave_acceso);
+        foreach ($resultados->result() as $fila)
+            {
+                $nombre = $fila->nombre;
+            $apellido_paterno = $fila->apellido_paterno;
+            $apellido_materno = $fila->apellido_materno;
+            $carrera = $fila->carrera;
+            $clave_acceso = $fila->clave_acceso;
+            $email = $fila->email;
+            $telefono = $fila->telefono;
+            }
+        $data = array(
+            'content' => "private/admin/edit_jefe_carrera_tmp",
+            'title'   => "Sistema residencias | Editar Jefes de Carrera.",
+            'barraTitulo' => "Editar Jefe de Carrera",
+            'nav'     => "navJefe",
+            'nombre' => $nombre,
+            'apellido_paterno' => $apellido_paterno,
+            'apellido_materno' => $apellido_materno,
+            'carrera' => $carrera,
+            'clave_acceso' => $clave_acceso,
+            'email' => $email,
+            'telefono' => $telefono
+        );
+        $this->load->view("private/admin/index",$data);
+    }
+    
+    public function edit_jefe_carrera(){
+        $clave_acceso = $this->uri->segment(3);
+        $data = array(
+            'nombre' => $this->input->post("nombre"),
+            'apellido_paterno' => $this->input->post("apellidoPaterno"),
+            'apellido_materno' => $this->input->post("apellidoMaterno"),
+            'carrera' => $this->input->post("carrera"),
+            'email' => $this->input->post("email"),
+            'telefono' => $this->input->post("telefono_residente")
+        );
+        
+        $this->jefe_carrera_model->update_jefe_carrera($clave_acceso, $data);
+        redirect('internal_private/jefes_carrera');
+    }
+    
+    public function alumnos(){
+        $data = array(
+            'content' => "private/admin/alumnos_tmp",
+            'title'   => "Sistema residencias | Alumnos.",
+            'barraTitulo' => "Alumnos",
+            'nav'     => "navAlum",
+            'registros' => $this->jefe_carrera_model->get_all_jefes()
+        );
+        $this->load->view("private/admin/index",$data);
     }
 }

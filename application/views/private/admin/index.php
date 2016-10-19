@@ -70,7 +70,7 @@
                     <li id="navJefe">
                         <a href="<?php echo base_url() ?>internal_private/jefes_carrera"><i class="fa fa-fw fa-dashboard"></i> Jefes de carrera</a>
                     </li>
-                    <li>
+                    <li id="navAlum">
                         <a href="<?php echo base_url() ?>internal_private/alumnos"><i class="fa fa-fw fa-bar-chart-o"></i> Alumnos</a>
                     </li>
                     <li>

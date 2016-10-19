@@ -1,18 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Jefe_carrera_model
- *
- * @author javier.castro
- */
 class Jefe_carrera_model extends CI_Model {
-    public function insert_jefe_carrera(){
+    public function get_all_jefes(){
+        $query = $this->db->get('jefe_carrera');
+        return $query;
+    }
+    
+    public function insert_jefe_carrera($data){
         $this->db->insert('jefe_carrera', $data);
+    }
+    
+    public function buscar_id($clave_acceso){
+        $this->db->where('clave_acceso', $clave_acceso);
+        $query = $this->db->get('jefe_carrera');
+        return $query;
+    }
+    
+    public function update_jefe_carrera($clave_acceso, $data){
+        $this->db->where('clave_acceso',$clave_acceso);
+    	$this->db->update('jefe_carrera',$data);
     }
 }
