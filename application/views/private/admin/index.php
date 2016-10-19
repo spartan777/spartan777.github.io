@@ -1,3 +1,4 @@
+<?php// if($this->session->userdata('logueado') == TRUE){  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,4 +166,4 @@
 </body>
 
 </html>
-
+<?php// }else{ redirect('internal_public/acceso_denegado');} ?>

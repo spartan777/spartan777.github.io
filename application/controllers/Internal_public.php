@@ -88,5 +88,9 @@ class internal_public extends CI_Controller {
             $this->load->view('public/login', $data);
         }
     }
+    
+    public function acceso_denegado(){
+        $this->load->view('public/acceso_denegado');
+    }
 
 }
