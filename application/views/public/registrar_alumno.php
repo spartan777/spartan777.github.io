@@ -173,18 +173,14 @@
                             <label class="col-sm-2 control-label" for="seguridad_social">Para Seguridad Social acudir:</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input type="radio" name="seguridad_social" id="IMSS" onclick="deshabilita()" value="IMSS">IMSS
+                                    <input type="radio" name="seguridad_social" id="IMSS" value="IMSS">IMSS
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="seguridad_social" id="ISSTE" onclick="deshabilita()" value="ISSTE"> ISSSTE
+                                    <input type="radio" name="seguridad_social" id="ISSTE" value="ISSTE"> ISSSTE
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="seguridad_social" id="Otros" onclick="habilita()" value="Otros"> Otros
+                                    <input type="radio" name="seguridad_social" id="Otros" value="Otros"> Otros
                                 </label>
-
-                                <label class="radio-inline">Especifique:</label>
-
-                                <input type="text" class="form-control" name="especifique" disabled="" id="especifique" value="<?php if(isset($especifique)) echo $especifique; ?>" placeholder="Especifique">
                             </div>
                         </div>
                         <div class="form-group">
@@ -243,16 +239,7 @@
                                             interval: 5000 //changes the speed
                                         });
         </script>
-        <script>
-            function deshabilita() {
-                document.getElementById("especifique").disabled = true;
-            }
-            function habilita() {
-                document.getElementById("especifique").disabled = false;
-            }
-        </script>
-
-
+        
     </body>
 </html>
 
