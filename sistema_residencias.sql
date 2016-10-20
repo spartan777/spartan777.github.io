@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2016 a las 01:00:59
+-- Tiempo de generación: 21-10-2016 a las 01:06:09
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.20
 
@@ -59,12 +59,24 @@ INSERT INTO `alumnos` (`numero_control`, `nombre`, `apellido_paterno`, `apellido
 --
 
 CREATE TABLE `empresa` (
-  `id_empresa` varchar(20) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
+  `no_control` varchar(15) NOT NULL,
   `nombre_empresa` varchar(50) NOT NULL,
-  `giro_empresa` varchar(12) NOT NULL,
-  `domicilio_empresa` varchar(50) NOT NULL,
-  `colonia_empresa` varchar(30) NOT NULL,
-  `codio_postal_empresa` int(5) NOT NULL
+  `giro_ramo_sector` varchar(12) NOT NULL,
+  `RFC` varchar(15) NOT NULL,
+  `domicilio` varchar(50) NOT NULL,
+  `colonia` varchar(30) NOT NULL,
+  `codigo_postal` int(5) NOT NULL,
+  `fax` varchar(10) NOT NULL,
+  `ciudad` varchar(30) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `mision_empresa` text NOT NULL,
+  `nombre_titular` varchar(50) NOT NULL,
+  `puesto_titular` varchar(30) NOT NULL,
+  `asesor_externo` varchar(50) NOT NULL,
+  `puesto_asesor` varchar(30) NOT NULL,
+  `nombre_acuerdo_trabajo` varchar(50) NOT NULL,
+  `puesto_acuerdo_trabajo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -88,7 +100,7 @@ CREATE TABLE `jefe_carrera` (
 --
 
 INSERT INTO `jefe_carrera` (`clave_acceso`, `nombre`, `apellido_paterno`, `apellido_materno`, `carrera`, `email`, `telefono`) VALUES
-('jefe125', 'fhydsi', 'fhdsou', 'ihfsih', 'sistemas', 'fsidh@das.co', '36994');
+('jefe125', 'Javier', 'Castro', 'Lagunes', 'sistemas', 'fsidh@das.co', '36994');
 
 -- --------------------------------------------------------
 
@@ -99,8 +111,13 @@ INSERT INTO `jefe_carrera` (`clave_acceso`, `nombre`, `apellido_paterno`, `apell
 CREATE TABLE `proyecto` (
   `id_proyecto` varchar(25) NOT NULL,
   `no_control` varchar(10) NOT NULL,
-  `id_empresa` varchar(10) NOT NULL,
-  `nombre_proyecto` varchar(10) NOT NULL
+  `lugar` varchar(30) NOT NULL,
+  `fecha` date NOT NULL,
+  `jefe_division` varchar(50) NOT NULL,
+  `nombre_proyecto` varchar(50) NOT NULL,
+  `opcion_proyecto` varchar(15) NOT NULL,
+  `periodo` varchar(25) NOT NULL,
+  `numero_residentes` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,6 +185,11 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --

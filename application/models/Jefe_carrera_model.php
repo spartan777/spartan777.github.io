@@ -25,4 +25,10 @@ class Jefe_carrera_model extends CI_Model {
         $this->db->where('clave_acceso',$clave_acceso);   
         $this->db->delete('jefe_carrera');
     }
+    
+    public function buscar_nombre_jefe($carrera){
+        $this->db->where('carrera', $carrera);
+        $query = $this->db->get('jefe_carrera');
+        return $query;
+    }
 }
