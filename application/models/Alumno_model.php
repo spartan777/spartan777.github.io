@@ -26,7 +26,7 @@ class Alumno_model extends CI_Model {
     public function check_proyecto($numero_control) {
         $this->db->where('no_control', $numero_control);
         $query = $this->db->get('proyecto');
-        if ($query->num_rows > 0) {
+        if ($query->num_rows() > 0) {
             return $query;
         } else {
             return FALSE;

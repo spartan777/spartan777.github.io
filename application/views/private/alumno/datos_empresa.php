@@ -82,8 +82,11 @@
             <label  for="puesto_acuerdo_trabajo">Puesto:</label>
             <input type="text" class="form-control" name="puesto_acuerdo_trabajo" id="puesto_acuerdo_trabajo" placeholder="Ingrese el puesto de la persona del acuerdo de trabajo.">
         </div>
-        <button type="submit" class="btn btn-success"></button>
+        <?php if (!isset($boton)) { ?>
+            <button type="submit" class="btn btn-success">Guardar y continuar</button>
+        </form>
+    <?php } else { ?>
         <a href="<?php echo base_url() ?>alumno/datos_escuela" class="btn btn-success" role="button">Siguiente</a>
-    </form>
+    <?php } ?>
 </div>
 

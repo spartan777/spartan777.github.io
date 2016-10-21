@@ -24,7 +24,7 @@ class Alumno extends CI_Controller {
     public function solicitud_residencia() {
         $numero_control = $this->session->userdata('user_login');
         $check_solicitud = $this->alumno_model->check_proyecto($numero_control);
-        if ($check_solicitud != FALSE) {
+        if ($check_solicitud == FALSE) {
             $data = array(
                 'content' => "private/alumno/datos_alumno",
                 'title' => "Sistema residencias | Solicitud de residencia.",
