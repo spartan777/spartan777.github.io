@@ -1,12 +1,12 @@
 <div class="col-md-6">
-    <form action="<?php echo base_url() ?>alumno/guardar_datos_proyecto" method="post">
+    <form id="guardarDatosProyecto" action="<?php echo base_url() ?>alumno/guardar_datos_proyecto" method="post">
         <div class="form-group">
             <label for="lugar">Lugar:</label>
             <input type="text" class="form-control" id="lugar" name="lugar" >
         </div>
         <div class="form-group">
             <label for="fecha">Fecha: </label>
-            <input type="text" class="form-control" id="fecha" name="fecha" >
+            <input type="date" class="form-control" id="fecha" name="fecha" >
         </div>
 
         <div class="form-group">
@@ -77,6 +77,7 @@
             <label for="numero_residentes" >Numero de Residentes:</label>
             <input type="text" class="form-control" id="numero_residentes" name="numero_residentes">
         </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 </div>
 

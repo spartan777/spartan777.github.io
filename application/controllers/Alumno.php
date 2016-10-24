@@ -54,17 +54,31 @@ class Alumno extends CI_Controller {
                 'nav' => "navSolicitud"
             );
         } else {
-            foreach ($check_solicitud->result() as $row){
-                //Falta asignar a variables para pasar a la vista
+            foreach ($check_solicitud->result() as $row) {
+                $data = array(
+                    'content' => "private/alumno/datos_empresa",
+                    'title' => "Sistema residencias | Solicitud de residencia.",
+                    'barraTitulo' => "Solicitud de Residencias | Datos de la empresa.",
+                    'boton' => TRUE,
+                    'nav' => "navSolicitud",
+                    'nombre_empresa' => $row->nombre_empresa,
+                    'giro_ramo_sector' => $row->giro_ramo_sector,
+                    'RFC' => $row->RFC,
+                    'domicilio' => $row->domicilio,
+                    'colonia' => $row->colonia,
+                    'codigo_postal' => $row->codigo_postal,
+                    'fax' => $row->fax,
+                    'ciudad' => $row->ciudad,
+                    'telefono' => $row->telefono,
+                    'mision_empresa' => $row->mision_empresa,
+                    'nombre_titular' => $row->nombre_titular,
+                    'puesto_titular' => $row->puesto_titular,
+                    'asesor_externo' => $row->asesor_externo,
+                    'puesto_asesor' => $row->puesto_asesor,
+                    'nombre_acuerdo_trabajo' => $row->nombre_acuerdo_trabajo,
+                    'puesto_acuerdo_trabajo' => $row->puesto_acuerdo_trabajo
+                );
             }
-            $data = array(
-                'content' => "private/alumno/datos_empresa",
-                'title' => "Sistema residencias | Solicitud de residencia.",
-                'barraTitulo' => "Solicitud de Residencias | Datos de la empresa.",
-                'boton' => TRUE,
-                'nav' => "navSolicitud"
-            );
-            
         }
         $this->load->view("private/alumno/index", $data);
     }
@@ -111,14 +125,25 @@ class Alumno extends CI_Controller {
             $apellido_materno = $rowJefe->apellido_materno;
         }
 
-        $data = array(
-            'content' => "private/alumno/datos_proyecto",
-            'title' => "Sistema residencias | Solicitud de residencia.",
-            'barraTitulo' => "Solicitud de Residencias | Datos del proyecto.",
-            'nav' => "navSolicitud",
-            'carrera' => $carrera,
-            'jefe_carrera' => $nombre . "&nbsp;" . $apellido_paterno . "&nbsp;" . $apellido_materno
-        );
+        $check_solicitud = $this->alumno_model->check_proyecto($numero_control);
+        if ($check_solicitud == FALSE) {
+
+            $data = array(
+                'content' => "private/alumno/datos_proyecto",
+                'title' => "Sistema residencias | Solicitud de residencia.",
+                'barraTitulo' => "Solicitud de Residencias | Datos del proyecto.",
+                'nav' => "navSolicitud",
+                'carrera' => $carrera,
+                'jefe_carrera' => $nombre . "&nbsp;" . $apellido_paterno . "&nbsp;" . $apellido_materno
+            );
+        } else {
+            $data = array(
+                'content' => "private/alumno/descargar_solicitud",
+                'title' => "Sistema residencias | Descargar solicitud de residencia.",
+                'barraTitulo' => "Solicitud de Residencias | Descargar.",
+                'nav' => "navSolicitud"
+            );
+        }
         $this->load->view("private/alumno/index", $data);
     }
 
@@ -134,6 +159,37 @@ class Alumno extends CI_Controller {
             'periodo' => $this->input->post('periodo'),
             'numero_residentes' => $this->input->post('numero_residentes')
         );
+
+        $this->alumno_model->insert_datos_proyecto($data);
+        redirect('alumno/solicitud_residencia');
+    }
+
+    public function descargar_solicitud() {
+        $numero_control = $this->session->userdata('user_login');
+        $this->load->library('word');
+        $templateWord = new TemplateProcessor(base_url().'templates/SOLICITUD_RESIDENCIA.docx');
+
+//        $nombre = "Sandra S.L.";
+//        $direccion = "Mi dirección";
+//        $municipio = "Mrd";
+//        $provincia = "Bdj";
+//        $cp = "02541";
+//        $telefono = "24536784";
+
+
+// --- Asignamos valores a la plantilla
+        $templateWord->setValue('numero_control', $numero_control);
+//        $templateWord->setValue('direccion_empresa', $direccion);
+//        $templateWord->setValue('municipio_empresa', $municipio);
+//        $templateWord->setValue('provincia_empresa', $provincia);
+//        $templateWord->setValue('cp_empresa', $cp);
+//        $templateWord->setValue('telefono_empresa', $telefono);
+
+// --- Guardamos el documento
+        $templateWord->saveAs('Documento02.docx');
+
+        header("Content-Disposition: attachment; filename=Documento02.docx; charset=iso-8859-1");
+        echo file_get_contents('Documento02.docx');
     }
 
 }
