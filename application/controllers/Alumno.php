@@ -167,7 +167,11 @@ class Alumno extends CI_Controller {
     public function descargar_solicitud() {
         $numero_control = $this->session->userdata('user_login');
         $this->load->library('word');
-        $templateWord = new TemplateProcessor(base_url().'templates/SOLICITUD_RESIDENCIA.docx');
+        
+        $PHPWord = new PHPWord();
+
+        $document = $PHPWord->loadTemplate(base_url().'templates/SOLICITUD_RESIDENCIA.docx');
+        
 
 //        $nombre = "Sandra S.L.";
 //        $direccion = "Mi dirección";
@@ -178,7 +182,7 @@ class Alumno extends CI_Controller {
 
 
 // --- Asignamos valores a la plantilla
-        $templateWord->setValue('numero_control', $numero_control);
+        $document->setValue('numero_control', $numero_control);
 //        $templateWord->setValue('direccion_empresa', $direccion);
 //        $templateWord->setValue('municipio_empresa', $municipio);
 //        $templateWord->setValue('provincia_empresa', $provincia);
@@ -186,10 +190,7 @@ class Alumno extends CI_Controller {
 //        $templateWord->setValue('telefono_empresa', $telefono);
 
 // --- Guardamos el documento
-        $templateWord->saveAs('Documento02.docx');
-
-        header("Content-Disposition: attachment; filename=Documento02.docx; charset=iso-8859-1");
-        echo file_get_contents('Documento02.docx');
+        $document->save(base_url().'desx.docx');
     }
 
 }
