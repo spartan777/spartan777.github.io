@@ -57,7 +57,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $this->session->userdata('user_login') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url() ?>internal_public/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -68,7 +68,7 @@
                     <li id="navHome">
                         <a href="<?php echo base_url() ?>alumno/"><i class="fa fa-fw fa-dashboard"></i> Home</a>
                     </li>
-                    <li id="navAlum">
+                    <li id="navDictamen">
                         <a href="<?php echo base_url() ?>alumno/consultar_dictamen"><i class="fa fa-fw fa-bar-chart-o"></i> Consultar Dictamen</a>
                     </li>
                     <li id="navSolicitud">

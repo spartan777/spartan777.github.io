@@ -92,5 +92,10 @@ class internal_public extends CI_Controller {
     public function acceso_denegado(){
         $this->load->view('public/acceso_denegado');
     }
+    
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect(base_url());
+    }
 
 }

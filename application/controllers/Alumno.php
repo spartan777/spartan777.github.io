@@ -20,8 +20,20 @@ class Alumno extends CI_Controller {
         );
         $this->load->view("private/alumno/index", $data);
     }
+    
+    public function consultar_dictamen(){
+        $numero_control = $this->session->userdata('user_login');
+        $data = array(
+                'content' => "private/alumno/dictamen_consulta",
+                'title' => "Sistema residencias | Consultar Dictamen.",
+                'barraTitulo' => "Consultar dictamen.",
+                'nav' => "navDictamen",
+                'resultados' => $this->alumno_model->buscar_dictamen($numero_control)
+            );
+        $this->load->view("private/alumno/index", $data);
+    }
 
-    public function solicitud_residencia() {
+        public function solicitud_residencia() {
         $numero_control = $this->session->userdata('user_login');
         $check_solicitud = $this->alumno_model->check_proyecto($numero_control);
         if ($check_solicitud == FALSE) {

@@ -41,4 +41,9 @@ class Jefe_carrera_model extends CI_Model {
         $query = $this->db->get('dictamen');
         return $query;
     }
+    
+    public function eliminar_dictamen($nombre_archivo){
+        $this->db->where('nombre_archivo',$nombre_archivo);   
+        $this->db->delete('dictamen');
+    }
 }

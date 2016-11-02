@@ -14,3 +14,10 @@ function confirmarCambiarPasJefe(clave_acceso) {
 	$('#modalCambiarJefeCarrera').modal('show');
 }
 
+function confirmarDeleteDictamen(nombre_archivo) {
+	document.getElementById("tituloEliminarDictamen").innerHTML = "Eliminar " + nombre_archivo;
+	document.getElementById("cuerpoEliminarDictamen").innerHTML = "¿Desea eliminar el dictamen con nombre: "
+			+ nombre_archivo + "?";
+	document.getElementById("rutaEliminarDictamen").href = "eliminar_dictamen/" + nombre_archivo + "";
+	$('#modalDeleteDictamen').modal('show');
+}

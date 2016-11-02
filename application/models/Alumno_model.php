@@ -47,5 +47,10 @@ class Alumno_model extends CI_Model {
         $query = $this->db->query("SELECT a.numero_control, a.nombre, a.apellido_paterno, a.apellido_materno, a.carrera, p.nombre_proyecto FROM alumnos a, proyecto p WHERE a.numero_control = '$no_control' AND a.carrera = '$carrera' ");
         return $query;
     }
+    
+    public function buscar_dictamen($numero_control){
+        $query = $this->db->query("SELECT dic.nombre_archivo, dic.hora_fecha FROM dictamen dic, alumnos al, jefe_carrera jc WHERE al.carrera = jc.carrera AND jc.clave_acceso = dic.clave_acceso AND al.numero_control = '$numero_control'");
+        return $query;
+    }
 
 }
