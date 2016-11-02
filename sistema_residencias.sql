@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2016 a las 01:23:02
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.20
+-- Tiempo de generación: 02-11-2016 a las 06:27:24
+-- Versión del servidor: 5.6.17
+-- Versión de PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `sistema_residencias`
@@ -26,7 +20,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `alumnos`
 --
 
-CREATE TABLE `alumnos` (
+CREATE TABLE IF NOT EXISTS `alumnos` (
   `numero_control` varchar(15) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido_paterno` varchar(50) NOT NULL,
@@ -38,7 +32,8 @@ CREATE TABLE `alumnos` (
   `telefono` varchar(12) NOT NULL,
   `seguridad_social` varchar(10) NOT NULL,
   `especifique` varchar(30) NOT NULL,
-  `numero_social` varchar(15) NOT NULL
+  `numero_social` varchar(15) NOT NULL,
+  PRIMARY KEY (`numero_control`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -58,17 +53,20 @@ INSERT INTO `alumnos` (`numero_control`, `nombre`, `apellido_paterno`, `apellido
 -- Estructura de tabla para la tabla `dictamen`
 --
 
-CREATE TABLE `dictamen` (
+CREATE TABLE IF NOT EXISTS `dictamen` (
+  `id_dictamen` int(11) NOT NULL AUTO_INCREMENT,
   `clave_acceso` varchar(15) NOT NULL,
-  `nombre_archivo` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nombre_archivo` varchar(50) NOT NULL,
+  `hora_fecha` timestamp NOT NULL,
+  PRIMARY KEY (`id_dictamen`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `dictamen`
 --
 
-INSERT INTO `dictamen` (`clave_acceso`, `nombre_archivo`) VALUES
-('0', 'Dictamen_sistemas.xls');
+INSERT INTO `dictamen` (`id_dictamen`, `clave_acceso`, `nombre_archivo`, `hora_fecha`) VALUES
+(9, 'jefe125', 'Dictamen_sistemas.docx', '2016-11-02 04:49:41');
 
 -- --------------------------------------------------------
 
@@ -76,8 +74,8 @@ INSERT INTO `dictamen` (`clave_acceso`, `nombre_archivo`) VALUES
 -- Estructura de tabla para la tabla `empresa`
 --
 
-CREATE TABLE `empresa` (
-  `id_empresa` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `empresa` (
+  `id_empresa` int(11) NOT NULL AUTO_INCREMENT,
   `no_control` varchar(15) NOT NULL,
   `nombre_empresa` varchar(50) NOT NULL,
   `giro_ramo_sector` varchar(12) NOT NULL,
@@ -94,8 +92,16 @@ CREATE TABLE `empresa` (
   `asesor_externo` varchar(50) NOT NULL,
   `puesto_asesor` varchar(30) NOT NULL,
   `nombre_acuerdo_trabajo` varchar(50) NOT NULL,
-  `puesto_acuerdo_trabajo` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `puesto_acuerdo_trabajo` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_empresa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`id_empresa`, `no_control`, `nombre_empresa`, `giro_ramo_sector`, `RFC`, `domicilio`, `colonia`, `codigo_postal`, `fax`, `ciudad`, `telefono`, `mision_empresa`, `nombre_titular`, `puesto_titular`, `asesor_externo`, `puesto_asesor`, `nombre_acuerdo_trabajo`, `puesto_acuerdo_trabajo`) VALUES
+(1, '115q0254', 'imss', 'Público', '3221', 'adsdasdas', 'dasdas', 13243, 'vxcvxcvcxv', 'asgfgfd', 'bvcbv', 'xvckfshjjflkzhc', 'kdshugghda', 'dasdas', 'zxczxc', 'czxczx', 'cczx', 'cxzczxcxz');
 
 -- --------------------------------------------------------
 
@@ -103,14 +109,15 @@ CREATE TABLE `empresa` (
 -- Estructura de tabla para la tabla `jefe_carrera`
 --
 
-CREATE TABLE `jefe_carrera` (
+CREATE TABLE IF NOT EXISTS `jefe_carrera` (
   `clave_acceso` varchar(15) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `apellido_paterno` varchar(50) NOT NULL,
   `apellido_materno` varchar(50) NOT NULL,
   `carrera` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `telefono` varchar(12) NOT NULL
+  `telefono` varchar(12) NOT NULL,
+  PRIMARY KEY (`clave_acceso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -126,17 +133,25 @@ INSERT INTO `jefe_carrera` (`clave_acceso`, `nombre`, `apellido_paterno`, `apell
 -- Estructura de tabla para la tabla `proyecto`
 --
 
-CREATE TABLE `proyecto` (
+CREATE TABLE IF NOT EXISTS `proyecto` (
   `id_proyecto` varchar(25) NOT NULL,
   `no_control` varchar(10) NOT NULL,
   `lugar` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `jefe_division` varchar(50) NOT NULL,
   `nombre_proyecto` varchar(50) NOT NULL,
-  `opcion_proyecto` varchar(15) NOT NULL,
+  `opcion_proyecto` varchar(20) NOT NULL,
   `periodo` varchar(25) NOT NULL,
-  `numero_residentes` int(2) NOT NULL
+  `numero_residentes` int(2) NOT NULL,
+  PRIMARY KEY (`id_proyecto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proyecto`
+--
+
+INSERT INTO `proyecto` (`id_proyecto`, `no_control`, `lugar`, `fecha`, `jefe_division`, `nombre_proyecto`, `opcion_proyecto`, `periodo`, `numero_residentes`) VALUES
+('', '115q0254', 'Cosamaloapan', '0000-00-00', 'Eleuteria', 'Sistema Residencias', 'Banco de Proyec', 'Agosto - Diciembre', 1);
 
 -- --------------------------------------------------------
 
@@ -144,12 +159,13 @@ CREATE TABLE `proyecto` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `no_control` varchar(20) NOT NULL,
   `pass_usuario` varchar(50) NOT NULL,
-  `tipo_usuario` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tipo_usuario` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -159,66 +175,8 @@ INSERT INTO `usuarios` (`id_usuario`, `no_control`, `pass_usuario`, `tipo_usuari
 (2, '115q0253', '21232f297a57a5a743894a0e4a801fc3', 'Alumno'),
 (3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin'),
 (4, '115q0254', '21232f297a57a5a743894a0e4a801fc3', 'Alumno'),
-(5, 'jefe125', 'e00cf25ad42683b3df678c61f42c6bda', 'Jefe'),
+(5, 'jefe125', '21232f297a57a5a743894a0e4a801fc3', 'Jefe'),
 (6, 'fs', '21232f297a57a5a743894a0e4a801fc3', 'Alumno'),
 (7, 'dsa', '523af537946b79c4f8369ed39ba78605', 'Alumno'),
-(8, '114q0254', 'f970e2767d0cfe75876ea857f92e319b', 'Alumno'),
+(8, '114q0254', '21232f297a57a5a743894a0e4a801fc3', 'Alumno'),
 (9, '115q0255', 'c12e01f2a13ff5587e1e9e4aedb8242d', 'Alumno');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `alumnos`
---
-ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`numero_control`);
-
---
--- Indices de la tabla `dictamen`
---
-ALTER TABLE `dictamen`
-  ADD PRIMARY KEY (`clave_acceso`);
-
---
--- Indices de la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id_empresa`);
-
---
--- Indices de la tabla `jefe_carrera`
---
-ALTER TABLE `jefe_carrera`
-  ADD PRIMARY KEY (`clave_acceso`);
-
---
--- Indices de la tabla `proyecto`
---
-ALTER TABLE `proyecto`
-  ADD PRIMARY KEY (`id_proyecto`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `empresa`
---
-ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
