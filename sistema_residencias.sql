@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2016 a las 01:06:09
+-- Tiempo de generación: 02-11-2016 a las 01:23:02
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.20
 
@@ -51,6 +51,24 @@ INSERT INTO `alumnos` (`numero_control`, `nombre`, `apellido_paterno`, `apellido
 ('115q0255', 'das', 'dsa', 'dsa', 'sistemas', 'asd', 'da@d.c', 'das', 'dsa', 'ISSTE', '0', 'das'),
 ('dsa', '115q0254', 'lk', 'l', 'contador', 'das', 'dsa@sds.gfg', 'das', 'fds', 'ISSTE', '0', 'dfs'),
 ('fs', '115q0254', 'dssak', 'os', 'informatica', 'fds', 'as@d.fd', 'd', 'fd', 'ISSTE', '0', 'fd');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dictamen`
+--
+
+CREATE TABLE `dictamen` (
+  `clave_acceso` varchar(15) NOT NULL,
+  `nombre_archivo` varchar(35) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `dictamen`
+--
+
+INSERT INTO `dictamen` (`clave_acceso`, `nombre_archivo`) VALUES
+('0', 'Dictamen_sistemas.xls');
 
 -- --------------------------------------------------------
 
@@ -156,6 +174,12 @@ INSERT INTO `usuarios` (`id_usuario`, `no_control`, `pass_usuario`, `tipo_usuari
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`numero_control`);
+
+--
+-- Indices de la tabla `dictamen`
+--
+ALTER TABLE `dictamen`
+  ADD PRIMARY KEY (`clave_acceso`);
 
 --
 -- Indices de la tabla `empresa`

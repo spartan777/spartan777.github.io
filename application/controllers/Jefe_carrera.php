@@ -3,6 +3,7 @@
 class Jefe_carrera extends CI_Controller{
     public function __construct() {
         parent::__construct();
+        $this->load->model('jefe_carrera_model');
     }
     
     public function index(){
@@ -27,39 +28,60 @@ class Jefe_carrera extends CI_Controller{
     
     public function do_upload()
     {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $clave_acceso = $this->session->userdata('user_login');
+        $resultados = $this->jefe_carrera_model->buscar_id($clave_acceso);
+        foreach ($resultados->result() as $row){
+            $carrera = $row->carrera;
+        }
+        $config['upload_path'] = './uploads/'.$carrera.'/';
+        $config['allowed_types'] = 'doc|docx|xls|xlsx';
         $config['max_size'] = '10000000';
-        $config['max_width'] = '10024';
-        $config['max_height'] = '10008';
-        //Asignar el nombre
-        $config['file_name'] = 'prueba';
+        $config['file_name'] = 'Dictamen_'.$carrera;
 
         $this->load->library('upload', $config);
         //SI LA IMAGEN FALLA AL SUBIR MOSTRAMOS EL ERROR EN LA VISTA UPLOAD_VIEW
         if (!$this->upload->do_upload()) {
             $data = array('error' => $this->upload->display_errors());
-            //echo@$error['error'];
-
-
+            echo@$error['error'];
         } else {
-        //EN OTRO CASO SUBIMOS LA IMAGEN, CREAMOS LA MINIATURA Y HACEMOS
-        //ENVÍAMOS LOS DATOS AL MODELO PARA HACER LA INSERCIÓN
-
-
             $file_info = $this->upload->data();
-            //USAMOS LA FUNCIÓN create_thumbnail Y LE PASAMOS EL NOMBRE DE LA IMAGEN,
-            //ASÍ YA TENEMOS LA IMAGEN REDIMENSIONADA
-            //$this->_create_thumbnail($file_info['file_name']);
+          
             $data = array('upload_data' => $this->upload->data());
-            $titulo = $this->session->userdata('id');
-            $imagen = $file_info['file_name'];
-            $subir = $this->systemusermodel->subir_imagen($titulo,$imagen);
-            //$data['titulo'] = $titulo;
-            $data['imagen'] = $imagen;
+            $datos = array(
+                'clave_acceso' => $clave_acceso,
+                'nombre_archivo' => $file_info['file_name']
+            );
+         
+            $this->jefe_carrera_model->registrar_dictamen($datos);
+    
             redirect('cuenta');
 
             //$this->load->view('upload_view', $data);
         }
+    }
+    
+    public function consultar_dictamen(){
+        $clave_acceso = $this->session->userdata('user_login');
+        $resultados = $this->jefe_carrera_model->buscar_id_dictamen($clave_acceso);
+        $data = array(
+            'content' => "private/jefe/dictamen_consulta",
+            'title' => "Sistema residencias | Consulta Dictamen.",
+            'barraTitulo' => "Consultar dictamen.",
+            'nav' => "navConsulDictamen",
+            'resultados' => $resultados
+        );
+        $this->load->view("private/jefe/index", $data);
+    }
+    
+    public function descargar_dictamen(){
+        $nombre_archivo = $this->uri->segment(3);
+        $clave_acceso = $this->session->userdata('user_login');
+        $resultados = $this->jefe_carrera_model->buscar_id($clave_acceso);
+        foreach ($resultados->result() as $row){
+            $carrera = $row->carrera;
+        }
+        $this->load->helper('download');
+        $data = file_get_contents(base_url().'uploads/sistemas/'.$nombre_archivo);
+         force_download($nombre_archivo, $data);
     }
 }

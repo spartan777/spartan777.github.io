@@ -31,4 +31,14 @@ class Jefe_carrera_model extends CI_Model {
         $query = $this->db->get('jefe_carrera');
         return $query;
     }
+    
+    public function registrar_dictamen($data){
+        $this->db->insert('dictamen', $data);
+    }
+    
+    public function buscar_id_dictamen($clave_acceso){
+        $this->db->where('clave_acceso', $clave_acceso);
+        $query = $this->db->get('dictamen');
+        return $query;
+    }
 }

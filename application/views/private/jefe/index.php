@@ -71,6 +71,9 @@
                     <li id="navDictamen">
                         <a href="<?php echo base_url() ?>jefe_carrera/subir_dictamen"><i class="fa fa-fw fa-bar-chart-o"></i> Subir Dictamen</a>
                     </li>
+                    <li id="navConsulDictamen">
+                        <a href="<?php echo base_url() ?>jefe_carrera/consultar_dictamen"><i class="fa fa-fw fa-bar-chart-o"></i> Consultar Dictamen</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -84,7 +87,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="page-header">
-                            Alumno <small>Sistema de Residencias</small>
+                            Jefe de Carrera <small>Sistema de Residencias</small>
                         </h2>
                         
                     </div>
