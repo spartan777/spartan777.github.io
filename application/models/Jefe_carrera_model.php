@@ -46,4 +46,10 @@ class Jefe_carrera_model extends CI_Model {
         $this->db->where('nombre_archivo',$nombre_archivo);   
         $this->db->delete('dictamen');
     }
+    
+    public function check_carrera($carrera){
+        $this->db->where('carrera', $carrera);
+        $query = $this->db->get('jefe_carrera');
+        return $query->num_rows();
+    }
 }

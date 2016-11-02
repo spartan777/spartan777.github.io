@@ -56,17 +56,27 @@ class internal_private extends CI_Controller {
             'carrera' => $this->input->post("carrera"),
             'clave_acceso' => $this->input->post("numero_control"),
             'email' => $this->input->post("email"),
-            'telefono' => $this->input->post("telefono_residente")
+            'telefono' => $this->input->post("telefono_residente"),
+            'content' => "private/admin/add_jefe_carrera_tmp",
+            'title' => "Sistema residencias | Agregar Jefes de Carrera.",
+            'barraTitulo' => "Agregar Jefe de Carrera",
+            'nav' => "navJefe"
         );
 
-        $existUser = $this->login_model->check_user($data['numero_control']);
+        $existUser = $this->login_model->check_user($data['clave_acceso']);
+        $existCarrera = $this->jefe_carrera_model->check_carrera($data['carrera']);
         if ($existUser == 0) {
-            $this->login_model->insert_usuario($datosUsuario);
-            $this->jefe_carrera_model->insert_jefe_carrera($data);
-            redirect('internal_private/jefes_carrera');
+            if($existCarrera == 0){
+                $this->login_model->insert_usuario($datosUsuario);
+                $this->jefe_carrera_model->insert_jefe_carrera($data);
+                redirect('internal_private/jefes_carrera');
+            }else{
+                $data['error'] = "La carrera ya tiene un Jefe de Carrera registrado.";
+                $this->load->view("private/admin/index", $data);
+            }
         } else {
             $data['error'] = "El usuario ya esta registrado.";
-            $this->load->view('internal_private/add_jefe_carrera', $data);
+            $this->load->view("private/admin/index", $data);
         }
     }
 
