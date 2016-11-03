@@ -184,7 +184,7 @@ class Alumno extends CI_Controller {
         $resultProyecto = $this->alumno_model->check_proyecto($numero_control);
         
         foreach ($resultAlumno->result() as $alumno){
-            $nombre_alum = $alumno->nombre . "&nbsp;" . $alumno->apellido_paterno . "&nbsp;" . $alumno->apellido_materno;
+            $nombre_alum = $alumno->nombre." ".$alumno->apellido_paterno." ".$alumno->apellido_materno;
             $carrera = $alumno->carrera;
             $domicilio_alum = $alumno->domicilio;
             $email_alum = $alumno->email;
@@ -215,7 +215,7 @@ class Alumno extends CI_Controller {
         $resultadosJefe = $this->jefe_carrera_model->buscar_nombre_jefe($carrera);
 
         foreach ($resultadosJefe->result() as $rowJefe) {
-            $jefe_carrera = $rowJefe->nombre . "&nbsp;" . $rowJefe->apellido_paterno . "&nbsp;" . $rowJefe->apellido_materno;
+            $jefe_carrera = $rowJefe->nombre." ".$rowJefe->apellido_paterno." ".$rowJefe->apellido_materno;
         }
         
         foreach ($resultEmpresa->result() as $empresa){
@@ -308,13 +308,13 @@ class Alumno extends CI_Controller {
             case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
         }
         
-        $templateProcesador = new PHPWord_Template('././templates/SOLICITUD_RESIDENCIA.docx');
+        $templateProcesador = new PHPWord_Template('././template/SOLICITUD_RESIDENCIA.docx');
         
 // --- Asignamos valores a la plantilla
         $templateProcesador->setValue('numero_control', $numero_control);
         $templateProcesador->setValue('lugar', $lugar);
         $templateProcesador->setValue('fecha', $fecha);
-        $templateProcesador->setValue('jefeDivision', $jefe_division);
+        $templateProcesador->setValue('jefe_division', $jefe_division);
         $templateProcesador->setValue('jefe_carrera', $jefe_carrera);
         $templateProcesador->setValue('carrera_alum', $carrera_alum);
         $templateProcesador->setValue('nombre_proyecto', $nombre_proyecto);
@@ -340,7 +340,7 @@ class Alumno extends CI_Controller {
         $templateProcesador->setValue('nombre_titular', $nombre_titular);
         $templateProcesador->setValue('puesto_titular', $puesto_titular);
         $templateProcesador->setValue('asesor_externo', $asesor_externo);
-        $templateProcesador->setValue('puesto_asesor ', $puesto_asesor);
+        $templateProcesador->setValue('puesto_asesor', $puesto_asesor);
         $templateProcesador->setValue('nombre_acuerdo_trabajo', $nombre_acuerdo_trabajo);
         $templateProcesador->setValue('puesto_acuerdo_trabajo', $puesto_acuerdo_trabajo);
         $templateProcesador->setValue('nombre_alum', $nombre_alum);
@@ -358,6 +358,7 @@ class Alumno extends CI_Controller {
         $templateProcesador->save($file_name);
         header("Content-Disposition: attachment; filename=".$file_name."; charset=iso-8859-1");
         echo file_get_contents($file_name);
+        unlink($file_name);
     }
 
 }
