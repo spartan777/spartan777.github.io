@@ -62,21 +62,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/encabezado2.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 1</h2>
+                        <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/tecNacional.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 2</h2>
+                        <h2 style=" color:  #000" ><strong>División de Estudios Profesionales</strong></h2>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/sev2.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 3</h2>
+                          <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
                     </div>
                 </div>
             </div>
@@ -96,40 +96,47 @@
             <!-- Marketing Icons Section -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Welcome to Modern Business
+                    <h1 style=" color:  #000" aling="center" class="page-header"><strong>Bienvenidos al Sistema de Tramites de Residencias
+                        </strong>
+                       
                     </h1>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4>
+                            <h4 style=" color:  #000"><strong>Misión</strong><i class="fa fa-fw fa-check"></i></h4>
                         </div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                            <a href="#" class="btn btn-default">Learn More</a>
+                            <p>“Ofrecer servicios de calidad con cobertura, pertinente y equitativa, que coadyuve a la conformación de una sociedad justa y humana”</p>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+                            <h4 style=" color:  #000"><strong>Visión</strong><i class="fa fa-fw fa-check"></i></h4>
                         </div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                            <a href="#" class="btn btn-default">Learn More</a>
+                            <p>“Ser una Institución de vanguardia con  redes de colaboración entre los diferentes sectores, para lograr capital humano participativo, tolerante y consciente que contribuya  en el desarrollo sostenido, sustentable, cultural y equitativo de la Nación y del Estado”</p>
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                            <h4 style=" color:  #000"><strong>Valores</strong><i class="fa fa-fw fa-check"></i></h4>
                         </div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                            <a href="#" class="btn btn-default">Learn More</a>
+                            <p>El ser humano.  Es el factor fundamental del quehacer institucional, constituyéndose en el valor central, para incidir en su calidad de vida.
+
+El espíritu de servicio.  Es la actitud proactiva que distingue a la persona por su profesionalismo en su desempeño, proporcionando lo mejor de sí mismo.
+
+El liderazgo.  Es la capacidad para la conducción innovadora, participativa y visionaria de la operación y desarrollo institucional.
+
+El trabajo en equipo. Es el proceso humano realizado de manera armónica con actitud proactiva, multiplicando los logros del objetivo común.</p>
+                          
                         </div>
                     </div>
                 </div>
@@ -139,38 +146,76 @@
             <!-- Portfolio Section -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Portfolio Heading</h2>
+                    <center> <h2 class="page-header">Nuestras carreras</h2></center>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                    </a>
+                    <center><img class=" img-circle" src="<?php echo base_url() ?>assets/img/INFORMATICA.jpg" width="200px" height="200px">
+                        <br><h4>Ing. Informática</h4></center>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                    </a>
+                    
+                        <center>  <img class="img-circle" src="<?php echo base_url() ?>assets/img/GESTION-EMPRESARIAL.jpg" width="200px" height="200px">
+                            <br><h4> Ing. Gestión Empresarial</h4></center>
+                            
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                    </a>
+                 
+                    <center> <img class="img-circle" src="<?php echo base_url() ?>assets/img/industrial.png" width="200px" height="200px">
+                        <br><h4>Ing.Industrial</h4></center>
+                </div>
+                
+                
+                <div class="col-md-4 col-sm-6">
+                    
+                    <center><img class="img-circle" src="<?php echo base_url() ?>assets/img/contador-publico.png" width="200px" height="200px">
+                        <br><h4>Lic Contador Publico</h4></center>
+                    
+                        
+                        
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                    </a>
+                  
+                    <center> <img class="img-circle" src="<?php echo base_url() ?>assets/img/petrolera.png" width="200px" height="200px">
+                        <br><h4>Ing.Petrolera</h4></center>
+                    
+                    
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                   
+                    <center>  <img class="img-circle" src="<?php echo base_url()?>assets/img/ELECTRONICA.jpg" width="200px" height="200px">
+                        <br><h4>Ing.Electronica</h4></center>
                     </a>
+                </div>
+                
+               
+                
+       
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                    </a>
+                    
+                    <center>   <img class="img-circle" src="<?php echo base_url()?>assets/img/SISTEMAS-COMPUTACIONALES.jpg"width="200px" height="200px">
+                        <br><h4>Ing.Sistemas Computacionales</h4></center>
+                    
                 </div>
+            
+            
+            
+            
+             <div class="col-md-4 col-sm-6">
+                    
+                 <center> <img class="img-circle" src="<?php echo base_url()?>assets/img/INNOVACION-AGRICOLA-SUS_.jpg" width="200px" height="200px">
+                     <br><h4>Ing.Innovación Agricola Sustentable</h4></center>
+                  
+                </div>
+            
+            
+            <div class="col-md-4 col-sm-6">
+                   
+                <center> <img class="img-circle" src="<?php echo base_url()?>assets/img/Renova.jpg" width="200px"height="200px">
+                    <br><h4>Ing.Energias Renovables</h4></center>
+                   
+                </div>
+                
             </div>
             <!-- /.row -->
 

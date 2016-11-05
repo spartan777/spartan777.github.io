@@ -3,27 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/controllers/Jefe_carrera.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/alumno/index.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/models/Alumno_model.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/sistema_residencias.sql</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/config/config.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/admin/add_alumno_tmp.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/jefe/index.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/jefe/dictamen_consulta.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/admin/index.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/third_party/PHPWord/Template.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/admin/jefe_carrera_tmp.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/models/Jefe_carrera_model.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/models/Login_model.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/public/login.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/controllers/Alumno.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/controllers/Internal_public.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/alumno/descargar_solicitud.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/private/jefe/upload_file.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/libraries/Word.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/views/public/acceso_denegado.php</file>
-            <file>file:/C:/xampp/htdocs/SistemaResidencias/application/controllers/Internal_private.php</file>
+            <file>file:/C:/wamp64/www/SistemaResidencias/application/views/public/login.php</file>
+            <file>file:/C:/wamp64/www/SistemaResidencias/application/config/config.php</file>
+            <file>file:/C:/wamp64/www/SistemaResidencias/application/views/public/registrar_alumno.php</file>
         </group>
     </open-files>
 </project-private>

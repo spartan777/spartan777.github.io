@@ -63,21 +63,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/encabezado2.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 1</h2>
+                        <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/tecNacional.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 2</h2>
+                        <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong>></h2>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                    <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/sev2.png');"></div>
                     <div class="carousel-caption">
-                        <h2>Caption 3</h2>
+                        <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
         <!-- Page Content -->
         <div class="container">
 
-            <h2>Registro de alumnos</h2>
+            <h2 style=" color:  #000"><strong>Registro de Alumnos</strong></h2>
 
             <hr>
 
