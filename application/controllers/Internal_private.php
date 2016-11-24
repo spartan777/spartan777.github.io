@@ -239,8 +239,12 @@ class internal_private extends CI_Controller {
     public function descargar_zip(){
         $no_control = $this->uri->segment(3);
         $fileSolicitud = $this->generar_solicitud($no_control);
+        $anexo3 = "././formatos/Anexo III.doc";
+        $anexo5 = "././formatos/Anexo V.doc";
         $fileZip = "Archivos_Residencias_".$no_control.".zip";
         $this->zip->read_file($fileSolicitud);
+        $this->zip->read_file($anexo3);
+        $this->zip->read_file($anexo5);
         $this->zip->download($fileZip);
         unlink($fileSolicitud);
         unlink($fileZip);

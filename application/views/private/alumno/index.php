@@ -1,4 +1,4 @@
-<?php// if($this->session->userdata('logueado') == TRUE){  ?>
+<?php if($this->session->userdata('logueado') == TRUE and $this->session->userdata('tipo_login') == "Alumno"){  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,26 +75,7 @@
                         <a href="<?php echo base_url() ?>alumno/solicitud_residencia"><i class="fa fa-fw fa-dashboard"></i> Solicitud de residencia</a>
                     </li>
                     <li id="navAlum">
-                        <a href="<?php echo base_url() ?>alumno/alumnos"><i class="fa fa-fw fa-bar-chart-o"></i> Primer Seguimiento</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Segundo Seguimiento</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Tercer Seguimiento</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Anexo III</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                        <a href="<?php echo base_url() ?>alumno/descargar_formatos"><i class="fa fa-fw fa-bar-chart-o"></i> Descargar Formatos</a>
                     </li>
                 </ul>
             </div>
@@ -169,4 +150,4 @@
 </body>
 
 </html>
-<?php// }else{ redirect('internal_public/acceso_denegado');} ?>
+<?php }else{ redirect('internal_public/acceso_denegado');} ?>

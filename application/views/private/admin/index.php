@@ -1,4 +1,4 @@
-<?php// if($this->session->userdata('logueado') == TRUE){  ?>
+<?php if($this->session->userdata('logueado') == TRUE and $this->session->userdata('tipo_login') == "Admin"){  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,25 +74,7 @@
                     <li id="navAlum">
                         <a href="<?php echo base_url() ?>internal_private/alumnos"><i class="fa fa-fw fa-bar-chart-o"></i> Alumnos</a>
                     </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
                     
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -166,4 +148,4 @@
 </body>
 
 </html>
-<?php// }else{ redirect('internal_public/acceso_denegado');} ?>
+<?php }else{ redirect('internal_public/acceso_denegado');} ?>
