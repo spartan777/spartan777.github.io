@@ -380,7 +380,14 @@ class internal_private extends CI_Controller {
             case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
         }
         
-        $templateProcesador = new PHPWord_Template('././template/SOLICITUD_RESIDENCIA.docx');
+        $formato = substr($numero_control, 0, 3);
+        if($formato == "155"){
+            $templateProcesador = new PHPWord_Template('././template/SOLICITUD_RESIDENCIA_10.docx');
+        }if($formato == "165"){
+            $templateProcesador = new PHPWord_Template('././template/SOLICITUD_RESIDENCIA_11.docx');
+        }else{
+            $templateProcesador = new PHPWord_Template('././template/SOLICITUD_RESIDENCIA.docx');
+        }
         
 // --- Asignamos valores a la plantilla
         $templateProcesador->setValue('numero_control', $numero_control);
