@@ -370,8 +370,8 @@ class Alumno extends CI_Controller {
     public function descargar_formatos(){
         $numero_control = $this->session->userdata('user_login');
         $fileSolicitud = $this->generar_solicitud($numero_control);
-        $anexo3 = "././formatos/Anexo III.doc";
-        $anexo5 = "././formatos/Anexo V.doc";
+        $anexo3 = $this->generar_anexo_tres($numero_control);
+        $anexo5 = $this->generar_anexo_cinco($numero_control);
         $fileZip = "Archivos_Residencias_".$numero_control.".zip";
         $this->zip->read_file($fileSolicitud);
         $this->zip->read_file($anexo3);
@@ -381,6 +381,97 @@ class Alumno extends CI_Controller {
         unlink($fileZip);
     }
     
+    public function generar_anexo_cinco($numero_control){
+        $resultAlumno = $this->alumno_model->buscar_id_alumno($numero_control);
+        $resultEmpresa = $this->alumno_model->check_empresa($numero_control);
+        $resultProyecto = $this->alumno_model->check_proyecto($numero_control);
+        
+        foreach ($resultAlumno->result() as $alumno){
+            $nombre_alum = $alumno->nombre." ".$alumno->apellido_paterno." ".$alumno->apellido_materno;
+            $carrera = $alumno->carrera;
+        }
+        
+        switch ($carrera){
+            case "contador":    $carrera_alum = "Lic. Contador Público";                break;
+            case "informatica": $carrera_alum = "Ing. Informática";                     break;
+            case "sistemas":    $carrera_alum = "Ing. en Sistemas Computacionales";     break;
+            case "industrial":  $carrera_alum = "Ing. Industrial";                      break;
+            case "electronica": $carrera_alum = "Ing. Electrónica";                     break;
+            case "gestion":     $carrera_alum = "Ing. en Gestión Empresarial";          break;
+            case "innovacion":  $carrera_alum = "Ing. Innovación Agrícola Sustentable"; break;
+            case "petrolera":   $carrera_alum = "Ing. Petrolera";                       break;
+            case "tic":         $carrera_alum = "Ing. Tic";                             break;
+            case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
+        }
+        
+        foreach ($resultProyecto->result() as $proyecto){
+            $nombre_proyecto = $proyecto->nombre_proyecto;
+            $periodo = $proyecto->periodo;
+            
+        }
+        
+        foreach ($resultEmpresa->result() as $empresa){
+            $nombre_empresa = $empresa->nombre_empresa;
+        }
+        
+        $templateProcesador = new PHPWord_Template('././template/Anexo_V.docx');
+        
+        $templateProcesador->setValue('nombre_residente', $nombre_alum);
+        $templateProcesador->setValue('numero_control', $numero_control);
+        $templateProcesador->setValue('carrera', $carrera_alum);
+        $templateProcesador->setValue('nombre_proyecto', $nombre_proyecto);
+        $templateProcesador->setValue('periodo', $periodo);
+        $templateProcesador->setValue('nombre_empresa', $nombre_empresa);
+        
+        $file_name = "Anexo_V_".$numero_control.".docx";
+        $templateProcesador->save($file_name);
+        
+        return $file_name;
+    }
+    
+    public function generar_anexo_tres($numero_control){
+        $resultAlumno = $this->alumno_model->buscar_id_alumno($numero_control);
+        $resultProyecto = $this->alumno_model->check_proyecto($numero_control);
+        
+        foreach ($resultAlumno->result() as $alumno){
+            $nombre_alum = $alumno->nombre." ".$alumno->apellido_paterno." ".$alumno->apellido_materno;
+            $carrera = $alumno->carrera;
+        }
+        
+        switch ($carrera){
+            case "contador":    $carrera_alum = "Lic. Contador Público";                break;
+            case "informatica": $carrera_alum = "Ing. Informática";                     break;
+            case "sistemas":    $carrera_alum = "Ing. en Sistemas Computacionales";     break;
+            case "industrial":  $carrera_alum = "Ing. Industrial";                      break;
+            case "electronica": $carrera_alum = "Ing. Electrónica";                     break;
+            case "gestion":     $carrera_alum = "Ing. en Gestión Empresarial";          break;
+            case "innovacion":  $carrera_alum = "Ing. Innovación Agrícola Sustentable"; break;
+            case "petrolera":   $carrera_alum = "Ing. Petrolera";                       break;
+            case "tic":         $carrera_alum = "Ing. Tic";                             break;
+            case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
+        }
+        
+        foreach ($resultProyecto->result() as $proyecto){
+            $nombre_proyecto = $proyecto->nombre_proyecto;
+            $periodo = $proyecto->periodo;
+            
+        }
+                
+        $templateProcesador = new PHPWord_Template('././template/Anexo_III.docx');
+        
+        $templateProcesador->setValue('nombre_residente', $nombre_alum);
+        $templateProcesador->setValue('numero_control', $numero_control);
+        $templateProcesador->setValue('carrera', $carrera_alum);
+        $templateProcesador->setValue('nombre_proyecto', $nombre_proyecto);
+        $templateProcesador->setValue('periodo', $periodo);
+        
+        $file_name = "Anexo_III_".$numero_control.".docx";
+        $templateProcesador->save($file_name);
+        
+        return $file_name;
+    }
+
+
     public function generar_solicitud($numero_control){
         $resultAlumno = $this->alumno_model->buscar_id_alumno($numero_control);
         $resultEmpresa = $this->alumno_model->check_empresa($numero_control);
