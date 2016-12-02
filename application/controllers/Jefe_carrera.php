@@ -50,7 +50,7 @@ class Jefe_carrera extends CI_Controller {
             case "energias":    $nombre_carrera = "Ing_Energías_Renovables";             break;
         }
         $config['upload_path'] = './uploads/' . $carrera . '/';
-        $config['allowed_types'] = 'doc|docx|xls|xlsx';
+        $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '10000000';
         $config['file_name'] = 'Dictamen-' . $nombre_carrera;
 
