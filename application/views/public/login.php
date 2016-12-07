@@ -216,8 +216,16 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                    
                 </div>
                 
-            </div>
+            
+        
+        
+         <div class="col-md-4 col-sm-6">
+                    <center><img class=" img-circle" src="<?php echo base_url() ?>assets/img/TIC_1.png" width="200px" height="200px">
+                        <br><h4>Ing. Tecnologias de la Información y la Comunicación</h4></center>
+                </div>
+        </div>
             <!-- /.row -->
+            
 
             <hr>
 
@@ -266,7 +274,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Copyright &copy; Your Website 2014</p>
+                        <p>Copyright &copy; Your Website 2016</p>
                     </div>
                 </div>
             </footer>

@@ -447,7 +447,7 @@ class Alumno extends CI_Controller {
             case "gestion":     $carrera_alum = "Ing. en Gestión Empresarial";          break;
             case "innovacion":  $carrera_alum = "Ing. Innovación Agrícola Sustentable"; break;
             case "petrolera":   $carrera_alum = "Ing. Petrolera";                       break;
-            case "tic":         $carrera_alum = "Ing. Tic";                             break;
+            case "tecnologias de la informacion y comunicacion":         $carrera_alum = "Ing. Tecnologias de la informacion y Comunicacion";                             break;
             case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
         }
         
