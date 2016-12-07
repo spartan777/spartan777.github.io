@@ -2,21 +2,21 @@
     <form id="guardarDatosProyecto" action="<?php echo base_url() ?>alumno/guardar_datos_proyecto" method="post">
         <div class="form-group">
             <label for="lugar">Lugar:</label>
-            <input type="text" class="form-control" id="lugar" name="lugar" >
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="lugar" name="lugar" >
         </div>
         <div class="form-group">
             <label for="fecha">Fecha: </label>
-            <input type="date" class="form-control" id="fecha" name="fecha" >
+            <input type="date" class="form-control" id="fecha" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="fecha" >
         </div>
 
         <div class="form-group">
             <label for="jefe_division">Jefe de div de estudios profesionales:</label>
-            <input type="text" class="form-control" id="jefe_division" name="jefe_division">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="jefe_division" name="jefe_division">
         </div>
 
         <div class="form-group">
             <label for="jefe_carrera">Coordinador de la carrera:</label>
-            <input type="text" class="form-control" id="jefe_carrera" name="jefe_carrera" value="<?php echo $jefe_carrera ?>" readonly="">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="jefe_carrera" name="jefe_carrera" value="<?php echo $jefe_carrera ?>" readonly="">
         </div>
 
         <div class="form-group">
@@ -49,7 +49,7 @@
 
         <div class="form-group">
             <label for="nombre_proyecto">Nombre del Proyecto:</label>
-            <input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="nombre_proyecto" name="nombre_proyecto">
         </div>
 
         <div class="form-group">
@@ -70,12 +70,12 @@
 
         <div class="form-group">
             <label for="periodo" >Periodo Proyectado:</label>
-            <input type="text" class="form-control" id="periodo" name="periodo">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="periodo" name="periodo">
         </div>
 
         <div class="form-group">
             <label for="numero_residentes" >Numero de Residentes:</label>
-            <input type="text" class="form-control" id="numero_residentes" name="numero_residentes">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="numero_residentes" name="numero_residentes">
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
     </form>
