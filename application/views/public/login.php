@@ -237,7 +237,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                         <div class="form-group">
                             <label for="user" class="col-sm-2 control-label">Usuario:</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="user" name="user" placeholder="Usuario">
+                                <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="user" name="user" placeholder="Usuario">
                             </div>
                         </div>
                         <div class="form-group">

@@ -2,26 +2,26 @@
     <div class="form-group">
         <label class="col-sm-2 control-label" for="numero_control">Clave de acceso:</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="numero_control" id="numero_control" value="<?php if (isset($clave_acceso)) echo $clave_acceso; ?>" placeholder="Ingrese la clave de acceso.">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="numero_control" id="numero_control" value="<?php if (isset($clave_acceso)) echo $clave_acceso; ?>" placeholder="Ingrese la clave de acceso.">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="nombre">Nombre:</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="nombre" id="nombre" value="<?php if (isset($nombre)) echo $nombre; ?>" placeholder="Ingrese el Nombre">
+            <input type="text" class="form-control" name="nombre" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="nombre" value="<?php if (isset($nombre)) echo $nombre; ?>" placeholder="Ingrese el Nombre">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label" for="apellidoParteno">Apellido Paterno: </label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno" value="<?php if (isset($apellido_paterno)) echo $apellido_paterno; ?>" placeholder="Ingrese el Apellido Paterno">
+            <input type="text" class="form-control" name="apellidoPaterno" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="apellidoPaterno" value="<?php if (isset($apellido_paterno)) echo $apellido_paterno; ?>" placeholder="Ingrese el Apellido Paterno">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="apellidoMaterno">Apellido Materno</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="apellidoMaterno" id="apellidoMaterno" value="<?php if (isset($apellido_materno)) echo $apellido_materno; ?>" placeholder="Ingrese Apellido Materno">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="apellidoMaterno" id="apellidoMaterno" value="<?php if (isset($apellido_materno)) echo $apellido_materno; ?>" placeholder="Ingrese Apellido Materno">
         </div>
     </div>
     <div class="form-group">
@@ -47,14 +47,14 @@
     <div class="form-group">
         <label class="col-sm-2 control-label" for="email">Email:</label>
         <div class="col-sm-6">
-            <input type="email" class="form-control" name="email" id="email" value="<?php if (isset($email)) echo $email; ?>" placeholder="Ingrese el e-mail de contacto">
+            <input type="email" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="email" id="email" value="<?php if (isset($email)) echo $email; ?>" placeholder="Ingrese el e-mail de contacto">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label" for="telefono_residente" >Telefono(No celular):</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="telefono_residente" id="telefono_residente" value="<?php if (isset($telefono)) echo $telefono; ?>" placeholder="Ingrese el teléfono">
+            <input type="text" class="form-control" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="telefono_residente" id="telefono_residente" value="<?php if (isset($telefono)) echo $telefono; ?>" placeholder="Ingrese el teléfono">
         </div>
     </div>
 
