@@ -64,19 +64,19 @@
                 <div class="item active">
                     <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/encabezado2.png');"></div>
                     <div class="carousel-caption">
-                        <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
+                      
                     </div>
                 </div>
                 <div class="item">
                     <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/tecNacional.png');"></div>
                     <div class="carousel-caption">
-                        <h2 style=" color:  #000" ><strong>División de Estudios Profesionales</strong></h2>
+             
                     </div>
                 </div>
                 <div class="item">
                     <div class="fill" style="background-image:url('<?php echo base_url() ?>assets/img/sev2.png');"></div>
                     <div class="carousel-caption">
-                          <h2 style=" color:  #000"><strong>División de Estudios Profesionales</strong></h2>
+                         
                     </div>
                 </div>
             </div>
