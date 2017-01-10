@@ -19,7 +19,7 @@
                     Desarrollar y administrar sistemas de información para aumentar la productividad y competitividad de las organizaciones.<br>
                     Seleccionar y utilizar de manera óptima las herramientas computacionales actuales y emergentes.<br>
                     Participar en la administración de los procesos organizacionales considerando los recursos disponibles en el área de su competencia.<br>
-                    Dirigir y participar en grupos de trabajo inter y multidisciplinarios que propongan soluciones integrales en su entorno.<br>
+                    Dirigir y participar en grupos de trabajo inter y multidisciplinarios que propongan soluciones integrales en su entorno.
                 </p>
             </div>
             <div class="modal-footer">

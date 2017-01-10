@@ -1,8 +1,8 @@
-<div class="modal fade" id="modalInformatica" tabindex="-1" role="dialog" aria-labelledby="modalInformatica" aria-hidden="true">
+<div class="modal fade" id="modalGestion" tabindex="-1" role="dialog" aria-labelledby="modalGestion" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><strong>Ingeniería Informática</strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Ingeniería en Gestión Empresarial</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,16 +10,15 @@
             <div class="modal-body">
                 <h5><strong>Objetivo General</strong></h5>
                 <p>
-                    La Licenciatura en Informática está diseñada para aquellos aspirantes que muestran interés por la administración de la tecnología informática, por el desarrollo de sistemas de información técnicos y administrativos, comunicaciones, desarrollo de redes, así como la investigación.
+                    Formar integralmente profesionales que contribuyan a la gestión de empresas e innovación de procesos; así como al diseño, implementación y desarrollo de sistemas estratégicos de negocios, optimizando recursos en su entorno global, con ética y responsabilidad social.
                 </p>
                 <hr>
                 <h5><strong>Perfil del Egresado</strong></h5>
                 <p>
-                    Contar con habilidades y actitudes que le permitan identificar problemas y oportunidades donde se aplique el tratamiento de información para proponer soluciones por medio de modelos y facilitar con ello la toma de decisiones.<br>
-                    Desarrollar y administrar sistemas de información para aumentar la productividad y competitividad de las organizaciones.<br>
-                    Seleccionar y utilizar de manera óptima las herramientas computacionales actuales y emergentes.<br>
-                    Participar en la administración de los procesos organizacionales considerando los recursos disponibles en el área de su competencia.<br>
-                    Dirigir y participar en grupos de trabajo inter y multidisciplinarios que propongan soluciones integrales en su entorno.<br>
+                    Desarrollar y aplicar habilidades directivas y la ingeniería en el diseño, creación, gestión, desarrollo, fortalecimiento e innovación de las organizaciones, con una orientación sistémica y sustentable para la toma de decisiones en forma efectiva.<br>
+                    Diseñar e innovar estructuras administrativas y procesos, con base en las necesidades de las organizaciones para competir eficientemente en mercados globales.<br>
+                    Gestionar eficientemente los recursos de la organización con visión compartida, con el fin de suministrar bienes y servicios de calidad.<br>
+                    Aplicar métodos cuantitativos y cualitativos para el análisis e interpretación de datos y modelado de sistemas, en los procesos organizacionales para la mejora continua, atendiendo los estándares de calidad mundial.
                 </p>
             </div>
             <div class="modal-footer">

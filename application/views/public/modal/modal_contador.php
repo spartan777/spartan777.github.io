@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalInformatica" tabindex="-1" role="dialog" aria-labelledby="modalInformatica" aria-hidden="true">
+<div class="modal fade" id="modalContador" tabindex="-1" role="dialog" aria-labelledby="modalContador" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@
                 <h5><strong>Perfil del Egresado</strong></h5>
                 <p>
                     Diseñar, implantar, controlar, evaluar, asesorar e innovar sistemas de información financiera, administrativa, fiscal y de auditoría en entidades económicas.<br>
-                    Analizar y generar información financiera con apego a las Normas de Información Financiera, nacionales e internacionales, para la toma de decisiones.<br>
+                    Analizar y generar información financiera con apego a las Normas de Información Financiera, nacionales e internacionales, para la toma de decisiones.
                 </p>
             </div>
             <div class="modal-footer">

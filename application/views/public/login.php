@@ -154,20 +154,20 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                 </div>
                 <div class="col-md-4 col-sm-6">
                     
-                        <center>  <img class="img-circle" src="<?php echo base_url() ?>assets/img/GESTION-EMPRESARIAL.jpg" width="200px" height="200px">
+                        <center><a href="#" data-toggle="modal" data-target="#modalGestion"><img class="img-circle" src="<?php echo base_url() ?>assets/img/GESTION-EMPRESARIAL.jpg" width="200px" height="200px"></a>
                             <br><h4> Ing. Gestión Empresarial</h4></center>
                             
                 </div>
                 <div class="col-md-4 col-sm-6">
                  
-                    <center> <img class="img-circle" src="<?php echo base_url() ?>assets/img/industrial.png" width="200px" height="200px">
+                    <center><a href="#" data-toggle="modal" data-target="#modalIndustrial"><img class="img-circle" src="<?php echo base_url() ?>assets/img/industrial.png" width="200px" height="200px"></a>
                         <br><h4>Ing.Industrial</h4></center>
                 </div>
                 
                 
                 <div class="col-md-4 col-sm-6">
                     
-                    <center><img class="img-circle" src="<?php echo base_url() ?>assets/img/contador-publico.png" width="200px" height="200px">
+                    <center><a href="#" data-toggle="modal" data-target="#modalContador"><img class="img-circle" src="<?php echo base_url() ?>assets/img/contador-publico.png" width="200px" height="200px"></a>
                         <br><h4>Lic Contador Publico</h4></center>
                     
                         
@@ -175,14 +175,14 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                 </div>
                 <div class="col-md-4 col-sm-6">
                   
-                    <center> <img class="img-circle" src="<?php echo base_url() ?>assets/img/petrolera.png" width="200px" height="200px">
+                    <center><a href="#" data-toggle="modal" data-target="#modalPetrolera"><img class="img-circle" src="<?php echo base_url() ?>assets/img/petrolera.png" width="200px" height="200px"></a>
                         <br><h4>Ing.Petrolera</h4></center>
                     
                     
                 </div>
                 <div class="col-md-4 col-sm-6">
                    
-                    <center>  <img class="img-circle" src="<?php echo base_url()?>assets/img/ELECTRONICA.jpg" width="200px" height="200px">
+                    <center><a href="#" data-toggle="modal" data-target="#modalElectronica"><img class="img-circle" src="<?php echo base_url()?>assets/img/ELECTRONICA.jpg" width="200px" height="200px"></a>
                         <br><h4>Ing.Electronica</h4></center>
                     </a>
                 </div>
@@ -193,7 +193,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                 </div>
                 <div class="col-md-4 col-sm-6">
                     
-                    <center>   <img class="img-circle" src="<?php echo base_url()?>assets/img/SISTEMAS-COMPUTACIONALES.jpg"width="200px" height="200px">
+                    <center><a href="#" data-toggle="modal" data-target="#modalSistemas"><img class="img-circle" src="<?php echo base_url()?>assets/img/SISTEMAS-COMPUTACIONALES.jpg"width="200px" height="200px"></a>
                         <br><h4>Ing.Sistemas Computacionales</h4></center>
                     
                 </div>
@@ -203,7 +203,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
             
              <div class="col-md-4 col-sm-6">
                     
-                 <center> <img class="img-circle" src="<?php echo base_url()?>assets/img/INNOVACION-AGRICOLA-SUS_.jpg" width="200px" height="200px">
+                 <center><a href="#" data-toggle="modal" data-target="#modalInnovacion"><img class="img-circle" src="<?php echo base_url()?>assets/img/INNOVACION-AGRICOLA-SUS_.jpg" width="200px" height="200px"></a>
                      <br><h4>Ing.Innovación Agricola Sustentable</h4></center>
                   
                 </div>
@@ -211,7 +211,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
             
             <div class="col-md-4 col-sm-6">
                    
-                <center> <img class="img-circle" src="<?php echo base_url()?>assets/img/Renova.jpg" width="200px"height="200px">
+                <center><a href="#" data-toggle="modal" data-target="#modalEnergias"><img class="img-circle" src="<?php echo base_url()?>assets/img/Renova.jpg" width="200px"height="200px"></a>
                     <br><h4>Ing.Energias Renovables</h4></center>
                    
                 </div>
@@ -220,7 +220,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
         
         
          <div class="col-md-4 col-sm-6">
-                    <center><img class=" img-circle" src="<?php echo base_url() ?>assets/img/TIC_1.png" width="200px" height="200px">
+             <center><a href="#" data-toggle="modal" data-target="#modalTic"><img class=" img-circle" src="<?php echo base_url() ?>assets/img/TIC_1.png" width="200px" height="200px"></a>
                         <br><h4>Ing. Tecnologias de la Información y la Comunicación</h4></center>
                 </div>
         </div>
@@ -289,7 +289,18 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
                 interval: 5000 //changes the speed
             })
         </script>
-        <?php include 'modal/modal_informatica.php';  ?>
+        <?php 
+            include 'modal/modal_contador.php';
+            include 'modal/modal_electronica.php';
+            include 'modal/modal_energias.php';
+            include 'modal/modal_gestion.php';
+            include 'modal/modal_industrial.php';
+            include 'modal/modal_informatica.php';
+            include 'modal/modal_innovacion.php';
+            include 'modal/modal_petrolera.php';
+            include 'modal/modal_sistemas.php';
+            include 'modal/modal_tic.php';
+        ?>
     </body>
 </html>
 

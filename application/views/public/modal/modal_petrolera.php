@@ -1,8 +1,8 @@
-<div class="modal fade" id="modalInformatica" tabindex="-1" role="dialog" aria-labelledby="modalInformatica" aria-hidden="true">
+<div class="modal fade" id="modalPetrolera" tabindex="-1" role="dialog" aria-labelledby="modalPetrolera" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><strong>Ingeniería Informática</strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Ingeniería Petrolera</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,16 +10,14 @@
             <div class="modal-body">
                 <h5><strong>Objetivo General</strong></h5>
                 <p>
-                    La Licenciatura en Informática está diseñada para aquellos aspirantes que muestran interés por la administración de la tecnología informática, por el desarrollo de sistemas de información técnicos y administrativos, comunicaciones, desarrollo de redes, así como la investigación.
+                    Formar profesionales en Ingeniería Petrolera con la capacidad para desarrollar la programación, ejecución y la dirección de los procesos de explotación de hidrocarburos, aprovechando de manera sustentable los recursos naturales, atendiendo la preservación del medio ambiente, aplicando para ello las nuevas tecnologías, con habilidades, actitudes, aptitudes analíticas y creativas, de liderazgo y calidad humana, con un espíritu de superación permanente para investigar, desarrollar y aplicar el conocimiento científico y tecnológico.
                 </p>
                 <hr>
                 <h5><strong>Perfil del Egresado</strong></h5>
                 <p>
-                    Contar con habilidades y actitudes que le permitan identificar problemas y oportunidades donde se aplique el tratamiento de información para proponer soluciones por medio de modelos y facilitar con ello la toma de decisiones.<br>
-                    Desarrollar y administrar sistemas de información para aumentar la productividad y competitividad de las organizaciones.<br>
-                    Seleccionar y utilizar de manera óptima las herramientas computacionales actuales y emergentes.<br>
-                    Participar en la administración de los procesos organizacionales considerando los recursos disponibles en el área de su competencia.<br>
-                    Dirigir y participar en grupos de trabajo inter y multidisciplinarios que propongan soluciones integrales en su entorno.<br>
+                    Estudiar las características geológicas, petrofísicas y dinámicas que controlan la capacidad de almacenamiento de hidrocarburos y la producción de yacimientos aplicando tecnología de punta.<br>
+                    Innovar, diseñar, implementar y evaluar los sistemas y modelos de exploración, producción y distribución para la optimización de los recursos con un enfoque de calidad y competitividad.<br>
+                    Aplicar nuevas técnicas de exploración y producción que ayuden en la interpretación y evaluación de las posibilidades de localización de yacimientos, campos petroleros, así como pozos acuíferos.
                 </p>
             </div>
             <div class="modal-footer">
