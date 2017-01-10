@@ -97,5 +97,22 @@ class internal_public extends CI_Controller {
         $this->session->sess_destroy();
         redirect(base_url());
     }
-
+    
+    //Prueba envio de correo
+    public function enviar_correo(){
+        $this->load->library('email','','correo');
+        $this->correo->from('noreply@itsco.com', 'Sistema Residencias'); // correo sin espacio
+        $this->correo->to('aguilas_lagunes@hotmail.com'); // correo sin espacio
+        $this->correo->subject('Esto es una prueba');
+        $this->correo->message('Aqui va el cuerpo del mensaje');
+        if($this->correo->send())
+        {
+            echo 'Correo enviado';
+        }
+        else
+        {
+            show_error($this->correo->print_debugger());
+        }
+    }
+    
 }
