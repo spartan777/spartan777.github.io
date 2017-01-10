@@ -264,7 +264,7 @@ El trabajo en equipo. Es el proceso humano realizado de manera armónica con act
 
                         </center>
                     </form>
-
+                    <a href="<?php echo base_url() ?>internal_public/enviar_correo">Correo</a>
                 </div>
             </div>
 

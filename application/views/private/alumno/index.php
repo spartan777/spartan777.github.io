@@ -77,6 +77,17 @@
                     <li id="navAlum">
                         <a href="<?php echo base_url() ?>alumno/descargar_formatos"><i class="fa fa-fw fa-bar-chart-o"></i> Descargar Formatos</a>
                     </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Subir Archivos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
