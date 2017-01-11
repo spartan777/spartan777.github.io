@@ -250,6 +250,31 @@ class internal_private extends CI_Controller {
         unlink($fileZip);
     }
     
+    public function descargar_escaneos(){
+        $no_control = $this->uri->segment(3);
+        $file_path = './uploads/escaneos/' . $no_control.'/';
+        $fileZip = "Archivos_Escaneados_".$no_control.".zip";
+        $this->zip->read_dir($file_path);
+        $this->zip->download($fileZip);
+        unlink($fileZip);
+    }
+    
+    public function enviar_correo(){
+        $this->load->library('email','','correo');
+        $this->correo->from('noreply@itsco.com', 'Sistema Residencias'); // correo sin espacio
+        $this->correo->to('aguilas_lagunes@hotmail.com'); // correo sin espacio
+        $this->correo->subject('Esto es una prueba');
+        $this->correo->message('Aqui va el cuerpo del mensaje');
+        if($this->correo->send())
+        {
+            echo 'Correo enviado';
+        }
+        else
+        {
+            show_error($this->correo->print_debugger());
+        }
+    }
+
     public function generar_anexo_cinco($numero_control){
         $resultAlumno = $this->alumno_model->buscar_id_alumno($numero_control);
         $resultEmpresa = $this->alumno_model->check_empresa($numero_control);

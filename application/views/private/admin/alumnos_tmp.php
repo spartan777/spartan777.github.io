@@ -86,6 +86,8 @@
                             ?></td>
                         <td><?php echo $row->nombre_proyecto; ?></td>
                         <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_zip/<?php echo $row->numero_control; ?>">Descargar ZIP</a></td>
+                        <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_escaneos/<?php echo $row->numero_control; ?>">Descrgar Escaneos</a></td>
+                        <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/enviar_correo/<?php echo $row->numero_control; ?>">Enviar Correo</a></td>
                     </tr>
         <?php
                 }
