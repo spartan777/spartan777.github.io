@@ -136,7 +136,22 @@
     <script src="<?php echo base_url() ?>assets/js/funcionesModal.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-           document.getElementById("<?php echo $nav; ?>").className = "active"; 
+           document.getElementById("<?php echo $nav; ?>").className = "active";
+           $("#rutaEnviarCorreo").submit(function(e){
+               e.preventDefault();
+               $.ajax({
+                  url: $(this).attr("action"),
+                  type: $(this).attr("method"),
+                  data: $(this).serialize(),
+                  dataType: 'json',
+                  error: function(output_string){
+                      $('#mensaje_error').append(output_string);
+                  },
+                  success:function(output_string){
+                      $('#mensaje_succes').append(output_string);
+                  }
+               });
+           });
         });
     </script>
 

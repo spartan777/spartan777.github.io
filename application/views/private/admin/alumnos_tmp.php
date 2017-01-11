@@ -87,7 +87,7 @@
                         <td><?php echo $row->nombre_proyecto; ?></td>
                         <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_zip/<?php echo $row->numero_control; ?>">Descargar ZIP</a></td>
                         <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_escaneos/<?php echo $row->numero_control; ?>">Descrgar Escaneos</a></td>
-                        <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/enviar_correo/<?php echo $row->numero_control; ?>">Enviar Correo</a></td>
+                        <td><button class="btn btn-primary" onclick="modalContacto('<?php echo $row->numero_control; ?>')">Enviar Correo</button></td>
                     </tr>
         <?php
                 }
@@ -99,3 +99,29 @@
 <?php } ?>
 </div>
 
+<div class="modal fade" id="modalEnviarCorreo" tabindex="-1" role="dialog" aria-labelledby="modalEnviarCorreo" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="divMensaje"><strong></strong></h5>
+      </div>
+      <div class="modal-body">
+          <form id="rutaEnviarCorreo" method="post">
+            <div class="form-group">
+              <label for="recipient-name" class="form-control-label">Asunto:</label>
+              <input type="text" class="form-control" id="asunto" name="asunto">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="form-control-label">Mensaje:</label>
+              <textarea style="resize:none" class="form-control" id="mensaje" name="mensaje"></textarea>
+            </div>
+          <button type="button" class="btn btn-secondary" id="cerrarEnvioCorreo">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+        </form>
+          <br>
+            <div style="color:red" id="mensaje_error"></div>
+            <div style="color:green" id="mensaje_succes"></div>
+      </div>
+    </div>
+  </div>
+</div>

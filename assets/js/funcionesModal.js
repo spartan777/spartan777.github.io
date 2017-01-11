@@ -21,3 +21,9 @@ function confirmarDeleteDictamen(nombre_archivo) {
 	document.getElementById("rutaEliminarDictamen").href = "eliminar_dictamen/" + nombre_archivo + "";
 	$('#modalDeleteDictamen').modal('show');
 }
+
+function modalContacto(no_control) {
+	document.getElementById("divMensaje").innerHTML = "Enviar correo a " + no_control;
+        document.getElementById("rutaEnviarCorreo").action = "enviar_correo/" + no_control + "";
+	$('#modalEnviarCorreo').modal('show');
+}

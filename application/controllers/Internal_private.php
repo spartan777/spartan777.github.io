@@ -261,18 +261,24 @@ class internal_private extends CI_Controller {
     
     public function enviar_correo(){
         $this->load->library('email','','correo');
-        $this->correo->from('noreply@itsco.com', 'Sistema Residencias'); // correo sin espacio
-        $this->correo->to('aguilas_lagunes@hotmail.com'); // correo sin espacio
-        $this->correo->subject('Esto es una prueba');
-        $this->correo->message('Aqui va el cuerpo del mensaje');
-        if($this->correo->send())
-        {
-            echo 'Correo enviado';
+        $numero_control = $this->uri->segment(3);
+        $resultAlumno = $this->alumno_model->buscar_id_alumno($numero_control);
+        foreach ($resultAlumno->result() as $alumno){
+            $email_alum = $alumno->email;
         }
-        else
-        {
-            show_error($this->correo->print_debugger());
+        $asunto = $this->input->post('asunto');
+        $mensaje = $this->input->post('mensaje');
+        
+        $this->correo->from('noreply@itsco.com', 'Sistema Residencias');
+        $this->correo->to($email_alum);
+        $this->correo->subject($asunto);
+        $this->correo->message($mensaje);
+        if($this->correo->send()){
+            $output_string = 'Correo enviado correctamente';
+        }else{
+            $output_string = 'Ocurrió un error al enviar el correo';
         }
+        echo json_encode($output_string);
     }
 
     public function generar_anexo_cinco($numero_control){

@@ -93,6 +93,26 @@ $(document).ready(function () {
         document.getElementById("password2Cambiar").value = "";
     });
     
+    var validatorEnvioCorreo = $('#rutaEnviarCorreo').validate({
+        rules: {
+            asunto:{
+               required: true
+           },
+           mensaje:{
+               required: true
+           }
+        }
+    });
+    
+    $("#cerrarEnvioCorreo").click(function(){
+        validatorEnvioCorreo.resetForm();
+	$('#modalEnviarCorreo').modal('hide');
+        document.getElementById("asunto").value = "";
+        document.getElementById("mensaje").value = "";
+        document.getElementById("mensaje_succes").innerHTML = "";
+        document.getElementById("mensaje_error").innerHTML = "";
+    });
+    
     var validatorDatosEmpresa = $('#guardarDatosEmpresa').validate({
        rules:{
            nombre_empresa:{
