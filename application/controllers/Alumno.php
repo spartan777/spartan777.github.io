@@ -23,6 +23,40 @@ class Alumno extends CI_Controller {
         $this->load->view("private/alumno/index", $data);
     }
     
+    public function subir_archivo(){
+        $tipo_archivo = $this->uri->segment(3);
+        
+        switch ($tipo_archivo){
+            case "constancia_creditos" : $archivo = "Constancia Créditos";        break;
+            case "carta_presentacion"  : $archivo = "Carta Presentación";         break;
+            case "carta_aceptacion"    : $archivo = "Carta Aceptación Empresa";   break;
+            case "asig_asesor_int"     : $archivo = "Asignacion Asesor Interno";  break;
+            case "asig_asesor_ext"     : $archivo = "Asignacion Asesor Externo";  break;
+            case "liberacion_jefe"     : $archivo = "Liberación Jefe de Carrera"; break;
+            case "liberacion_dep"      : $archivo = "Liberación de la DEP";       break;
+        }
+        
+        $data = array(
+            'content' => "private/jefe/upload_file",
+            'title' => "Sistema residencias | Subir Archivo.",
+            'barraTitulo' => "Subir .".$archivo,
+            'nav' => "navSubir",
+            'tipoArchivo' => $tipo_archivo
+            
+        );
+        $this->load->view("private/alumno/index", $data);
+    }
+    
+    public function subir_archivo_word(){
+        $data = array(
+            'content' => "private/alumno/upload_file_word",
+            'title' => "Sistema residencias | Subir Archivo.",
+            'barraTitulo' => "Subir Anteproyecto.",
+            'nav' => "navSubir",
+        );
+        $this->load->view("private/alumno/index", $data);
+    }
+
     public function consultar_dictamen(){
         $numero_control = $this->session->userdata('user_login');
         $data = array(

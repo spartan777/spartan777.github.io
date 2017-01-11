@@ -77,14 +77,32 @@
                     <li id="navAlum">
                         <a href="<?php echo base_url() ?>alumno/descargar_formatos"><i class="fa fa-fw fa-bar-chart-o"></i> Descargar Formatos</a>
                     </li>
-                    <li>
+                    <li id="navSubir">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Subir Archivos <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo_word">Anteproyecto</a>
                             </li>
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/constancia_creditos">Constancia Créditos</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/carta_presentacion">Carta Presentación</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/carta_aceptacion">Carta Aceptación Empresa</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/asig_asesor_int">Asignacion Asesor Interno</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/asig_asesor_ext">Asignacion Asesor Externo</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_jefe">Liberación Jefe de Carrera</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_dep">Liberación de la DEP</a>
                             </li>
                         </ul>
                     </li>
