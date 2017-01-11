@@ -37,14 +37,56 @@ class Alumno extends CI_Controller {
         }
         
         $data = array(
-            'content' => "private/jefe/upload_file",
+            'content' => "private/alumno/upload_file",
             'title' => "Sistema residencias | Subir Archivo.",
-            'barraTitulo' => "Subir .".$archivo,
+            'barraTitulo' => "Subir ".$archivo,
             'nav' => "navSubir",
-            'tipoArchivo' => $tipo_archivo
+            'tipo_archivo' => $tipo_archivo
             
         );
         $this->load->view("private/alumno/index", $data);
+    }
+    
+    public function do_upload() {
+        $tipo_archivo = $this->input->post('tipo_archivo');
+        $numero_control = $this->session->userdata('user_login');
+        $file_path = './uploads/escaneos/' . $numero_control;
+        switch ($tipo_archivo){
+            case "constancia_creditos" : $archivo = "Constancia Créditos";        break;
+            case "carta_presentacion"  : $archivo = "Carta Presentación";         break;
+            case "carta_aceptacion"    : $archivo = "Carta Aceptación Empresa";   break;
+            case "asig_asesor_int"     : $archivo = "Asignacion Asesor Interno";  break;
+            case "asig_asesor_ext"     : $archivo = "Asignacion Asesor Externo";  break;
+            case "liberacion_jefe"     : $archivo = "Liberación Jefe de Carrera"; break;
+            case "liberacion_dep"      : $archivo = "Liberación de la DEP";       break;
+        }
+        
+        if (!file_exists($file_path)) {
+            mkdir($file_path, 0777, true);
+        }
+        
+        $config['upload_path'] = $file_path . '/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '10000000';
+        $config['file_name'] = $tipo_archivo;
+        $config['overwrite'] = TRUE;
+
+        $this->load->library('upload', $config);
+        //SI LA IMAGEN FALLA AL SUBIR MOSTRAMOS EL ERROR EN LA VISTA UPLOAD_VIEW
+        if (!$this->upload->do_upload()) {
+            $data = array(
+                'content' => "private/alumno/upload_file",
+                'title' => "Sistema residencias | Subir Archivo.",
+                'barraTitulo' => "Subir ".$archivo,
+                'nav' => "navSubir",
+                'tipo_archivo' => $tipo_archivo,
+                'error' => "Ocurrió un error al procesar el archivo."
+            );
+            $this->load->view("private/alumno/index", $data);
+
+        } else {
+            redirect('alumno/subir_archivo/'.$tipo_archivo);
+        }
     }
     
     public function subir_archivo_word(){
@@ -53,8 +95,42 @@ class Alumno extends CI_Controller {
             'title' => "Sistema residencias | Subir Archivo.",
             'barraTitulo' => "Subir Anteproyecto.",
             'nav' => "navSubir",
+            'tipo_archivo' => "anteproyecto"
         );
         $this->load->view("private/alumno/index", $data);
+    }
+    
+    public function do_upload_word() {
+        $tipo_archivo = $this->input->post('tipo_archivo');
+        $numero_control = $this->session->userdata('user_login');
+        $file_path = './uploads/escaneos/' . $numero_control;
+               
+        if (!file_exists($file_path)) {
+            mkdir($file_path, 0777, true);
+        }
+        
+        $config['upload_path'] = $file_path . '/';
+        $config['allowed_types'] = 'doc|docx';
+        $config['max_size'] = '10000000';
+        $config['file_name'] = $tipo_archivo;
+        $config['overwrite'] = TRUE;
+
+        $this->load->library('upload', $config);
+        //SI LA IMAGEN FALLA AL SUBIR MOSTRAMOS EL ERROR EN LA VISTA UPLOAD_VIEW
+        if (!$this->upload->do_upload()) {
+            $data = array(
+                'content' => "private/alumno/upload_file_word",
+                'title' => "Sistema residencias | Subir Archivo.",
+                'barraTitulo' => "Subir Anteproyecto.",
+                'nav' => "navSubir",
+                'tipo_archivo' => $tipo_archivo,
+                'error' => "Ocurrió un error al procesar el archivo."
+            );
+            $this->load->view("private/alumno/index", $data);
+
+        } else {
+            redirect('alumno/subir_archivo_word');
+        }
     }
 
     public function consultar_dictamen(){

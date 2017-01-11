@@ -53,6 +53,7 @@ class Jefe_carrera extends CI_Controller {
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '10000000';
         $config['file_name'] = 'Dictamen-' . $nombre_carrera;
+        $config['overwrite'] = TRUE;
 
         $this->load->library('upload', $config);
         //SI LA IMAGEN FALLA AL SUBIR MOSTRAMOS EL ERROR EN LA VISTA UPLOAD_VIEW
