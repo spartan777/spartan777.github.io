@@ -85,7 +85,10 @@ class Alumno extends CI_Controller {
             $this->load->view("private/alumno/index", $data);
 
         } else {
-            redirect('alumno/subir_archivo/'.$tipo_archivo);
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Archivo subido correcto");'; 
+            echo 'window.location.href = "'.  base_url().'alumno/subir_archivo/'.$tipo_archivo.'";';
+            echo '</script>';
         }
     }
     
@@ -129,7 +132,10 @@ class Alumno extends CI_Controller {
             $this->load->view("private/alumno/index", $data);
 
         } else {
-            redirect('alumno/subir_archivo_word');
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Archivo subido correcto");'; 
+            echo 'window.location.href = "'.  base_url().'alumno/subir_archivo_word/";';
+            echo '</script>';
         }
     }
 
