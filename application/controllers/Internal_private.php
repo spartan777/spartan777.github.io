@@ -253,10 +253,17 @@ class internal_private extends CI_Controller {
     public function descargar_escaneos(){
         $no_control = $this->uri->segment(3);
         $file_path = './uploads/escaneos/' . $no_control.'/';
-        $fileZip = "Archivos_Escaneados_".$no_control.".zip";
-        $this->zip->read_dir($file_path);
-        $this->zip->download($fileZip);
-        unlink($fileZip);
+        if (file_exists($file_path)) {
+            $fileZip = "Archivos_Escaneados_".$no_control.".zip";
+            $this->zip->read_dir($file_path);
+            $this->zip->download($fileZip);
+            unlink($fileZip);
+        }else{
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Sin archivos escaneados.");'; 
+            echo 'window.location.href = "'.  base_url().'internal_private/alumnos";';
+            echo '</script>';
+        }
     }
     
     public function enviar_correo(){

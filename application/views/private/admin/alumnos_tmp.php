@@ -86,7 +86,7 @@
                             ?></td>
                         <td><?php echo $row->nombre_proyecto; ?></td>
                         <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_zip/<?php echo $row->numero_control; ?>">Descargar ZIP</a></td>
-                        <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_escaneos/<?php echo $row->numero_control; ?>">Descrgar Escaneos</a></td>
+                        <td><a class="btn btn-primary" role="button" href="<?php echo base_url() ?>internal_private/descargar_escaneos/<?php echo $row->numero_control; ?>">Descargar Escaneos</a></td>
                         <td><button class="btn btn-primary" onclick="modalContacto('<?php echo $row->numero_control; ?>')">Enviar Correo</button></td>
                     </tr>
         <?php
@@ -96,7 +96,7 @@
             </tbody>
 
         </table>
-<?php } ?>
+<?php } ?>      
 </div>
 
 <div class="modal fade" id="modalEnviarCorreo" tabindex="-1" role="dialog" aria-labelledby="modalEnviarCorreo" aria-hidden="true">
