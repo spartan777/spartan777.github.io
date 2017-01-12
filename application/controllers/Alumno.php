@@ -86,7 +86,7 @@ class Alumno extends CI_Controller {
 
         } else {
             echo '<script type="text/javascript">'; 
-            echo 'alert("Archivo subido correcto");'; 
+            echo 'alert("Archivo subido correctamente");'; 
             echo 'window.location.href = "'.  base_url().'alumno/subir_archivo/'.$tipo_archivo.'";';
             echo '</script>';
         }
@@ -133,7 +133,7 @@ class Alumno extends CI_Controller {
 
         } else {
             echo '<script type="text/javascript">'; 
-            echo 'alert("Archivo subido correcto");'; 
+            echo 'alert("Archivo subido correctamente");'; 
             echo 'window.location.href = "'.  base_url().'alumno/subir_archivo_word/";';
             echo '</script>';
         }
