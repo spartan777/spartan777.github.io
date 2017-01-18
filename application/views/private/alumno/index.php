@@ -93,9 +93,6 @@
                                 <a href="<?php echo base_url() ?>alumno/subir_archivo/carta_aceptacion">Carta Aceptación Empresa</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url() ?>alumno/subir_archivo/asig_asesor_int">Asignacion Asesor Interno</a>
-                            </li>
-                            <li>
                                 <a href="<?php echo base_url() ?>alumno/subir_archivo/asig_asesor_ext">Asignacion Asesor Externo</a>
                             </li>
                             <li>
