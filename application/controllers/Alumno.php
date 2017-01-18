@@ -27,13 +27,22 @@ class Alumno extends CI_Controller {
         $tipo_archivo = $this->uri->segment(3);
         
         switch ($tipo_archivo){
-            case "constancia_creditos" : $archivo = "Constancia Créditos";        break;
-            case "carta_presentacion"  : $archivo = "Carta Presentación";         break;
-            case "carta_aceptacion"    : $archivo = "Carta Aceptación Empresa";   break;
-            case "asig_asesor_int"     : $archivo = "Asignacion Asesor Interno";  break;
-            case "asig_asesor_ext"     : $archivo = "Asignacion Asesor Externo";  break;
-            case "liberacion_jefe"     : $archivo = "Liberación Jefe de Carrera"; break;
-            case "liberacion_dep"      : $archivo = "Liberación de la DEP";       break;
+            case "constancia_creditos"        : $archivo = "Constancia Créditos";            break;
+            case "carta_presentacion"         : $archivo = "Carta Presentación";             break;
+            case "carta_aceptacion"           : $archivo = "Carta Aceptación Empresa";       break;
+            case "asig_asesor_int"            : $archivo = "Asignacion Asesor Interno";      break;
+            case "asig_asesor_ext"            : $archivo = "Asignacion Asesor Externo";      break;
+            case "liberacion_jefe"            : $archivo = "Liberación Jefe de Carrera";     break;
+            case "liberacion_dep"             : $archivo = "Liberación de la DEP";           break;
+            case "liberacion_servicio_social" : $archivo = "Liberación del Servicio Social"; break;
+            case "liberacion_empresa"         : $archivo = "Liberación de la Empresa";       break;
+            case "liberacion_asesor_externo"  : $archivo = "Liberación del Asesor Externo";  break;
+            case "reporte_asesoria_1"         : $archivo = "Reporte de Asesoría 1";          break;
+            case "reporte_asesoria_2"         : $archivo = "Reporte de Asesoría 2";          break;
+            case "reporte_asesoria_3"         : $archivo = "Reporte de Asesoría 3";          break;
+            case "reporte_seguimiento_1"      : $archivo = "Reporte de Seguimiento 1";       break;
+            case "reporte_seguimiento_2"      : $archivo = "Reporte de Seguimiento 2";       break;
+            case "reporte_seguimiento_3"      : $archivo = "Reporte de Seguimiento 3";       break;
         }
         
         $data = array(
@@ -52,13 +61,22 @@ class Alumno extends CI_Controller {
         $numero_control = $this->session->userdata('user_login');
         $file_path = './uploads/escaneos/' . $numero_control;
         switch ($tipo_archivo){
-            case "constancia_creditos" : $archivo = "Constancia Créditos";        break;
-            case "carta_presentacion"  : $archivo = "Carta Presentación";         break;
-            case "carta_aceptacion"    : $archivo = "Carta Aceptación Empresa";   break;
-            case "asig_asesor_int"     : $archivo = "Asignacion Asesor Interno";  break;
-            case "asig_asesor_ext"     : $archivo = "Asignacion Asesor Externo";  break;
-            case "liberacion_jefe"     : $archivo = "Liberación Jefe de Carrera"; break;
-            case "liberacion_dep"      : $archivo = "Liberación de la DEP";       break;
+            case "constancia_creditos"        : $archivo = "Constancia Créditos";            break;
+            case "carta_presentacion"         : $archivo = "Carta Presentación";             break;
+            case "carta_aceptacion"           : $archivo = "Carta Aceptación Empresa";       break;
+            case "asig_asesor_int"            : $archivo = "Asignacion Asesor Interno";      break;
+            case "asig_asesor_ext"            : $archivo = "Asignacion Asesor Externo";      break;
+            case "liberacion_jefe"            : $archivo = "Liberación Jefe de Carrera";     break;
+            case "liberacion_dep"             : $archivo = "Liberación de la DEP";           break;
+            case "liberacion_servicio_social" : $archivo = "Liberación del Servicio Social"; break;
+            case "liberacion_empresa"         : $archivo = "Liberación de la Empresa";       break;
+            case "liberacion_asesor_externo"  : $archivo = "Liberación del Asesor Externo";  break;
+            case "reporte_asesoria_1"         : $archivo = "Reporte de Asesoría 1";          break;
+            case "reporte_asesoria_2"         : $archivo = "Reporte de Asesoría 2";          break;
+            case "reporte_asesoria_3"         : $archivo = "Reporte de Asesoría 3";          break;
+            case "reporte_seguimiento_1"      : $archivo = "Reporte de Seguimiento 1";       break;
+            case "reporte_seguimiento_2"      : $archivo = "Reporte de Seguimiento 2";       break;
+            case "reporte_seguimiento_3"      : $archivo = "Reporte de Seguimiento 3";       break;
         }
         
         if (!file_exists($file_path)) {

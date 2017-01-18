@@ -104,6 +104,37 @@
                             <li>
                                 <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_dep">Liberación de la DEP</a>
                             </li>
+                            
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_servicio_social">Liberación del Servicio Social</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_empresa">Liberación de la Empresa</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/liberacion_asesor_externo">Liberación del Asesor Externo</a>
+                            </li>
+                            
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_asesoria_1">Reporte de Asesoría 1</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_asesoria_2">Reporte de Asesoría 2</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_asesoria_3">Reporte de Asesoría 3</a>
+                            </li>
+                            
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_seguimiento_1">Reporte de Seguimiento 1</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_seguimiento_2">Reporte de Seguimiento 2</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>alumno/subir_archivo/reporte_seguimiento_3">Reporte de Seguimiento 3</a>
+                            </li>
+                            
                         </ul>
                     </li>
                 </ul>
