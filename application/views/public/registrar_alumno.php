@@ -187,6 +187,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-2 control-label" for="sexo" >Sexo:</label>
+                            <div class="col-sm-6">
+                                <select name="sexo" id="disabledSelect" class="form-control">
+                                    <option value="M">MASCULINO</option>
+                                    <option value="F">FEMENINO</option>            
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputPassword3">Password</label>
                             <div class="col-sm-6">
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">

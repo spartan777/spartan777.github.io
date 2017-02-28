@@ -12,6 +12,7 @@ class internal_private extends CI_Controller {
         $this->load->model("alumno_model");
         $this->load->library('zip');
         $this->load->library('word');
+        $this->load->library('excel');
     }
 
     public function index() {
@@ -22,6 +23,181 @@ class internal_private extends CI_Controller {
             'nav' => "navHome"
         );
         $this->load->view("private/admin/index", $data);
+    }
+    
+    public function descargar_reporte(){
+        $carrera = $this->input->post('carrera');
+        if($carrera == 'general'){
+            $query = $this->alumno_model->get_all_alumno();
+            $carrera_alum = "Reporte General";
+        }else{
+            $query = $this->alumno_model->descargar_reporte($carrera);
+        }
+        
+        switch ($carrera){
+            case "contador":    $carrera_alum = "Lic. Contador Público";                break;
+            case "informatica": $carrera_alum = "Ing. Informática";                     break;
+            case "sistemas":    $carrera_alum = "Ing. en Sistemas Computacionales";     break;
+            case "industrial":  $carrera_alum = "Ing. Industrial";                      break;
+            case "electronica": $carrera_alum = "Ing. Electrónica";                     break;
+            case "gestion":     $carrera_alum = "Ing. en Gestión Empresarial";          break;
+            case "innovacion":  $carrera_alum = "Ing. Innovación Agrícola Sustentable"; break;
+            case "petrolera":   $carrera_alum = "Ing. Petrolera";                       break;
+            case "tic":         $carrera_alum = "Ing. Tic";                             break;
+            case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
+            case "general":     $carrera_alum = "Reporte General";                      break;
+        }
+        // Create new PHPExcel object
+        $objPHPExcel = new PHPExcel();
+        
+        //Formatting
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:L1');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A2:A3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('B2:B3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('C2:C3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('D2:D3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('E2:E3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('F2:F3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('G2:H3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('I2:L2');
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('C')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('H')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('I')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('J')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('K')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('L')->setAutoSize(true);
+        
+        // Add some data
+        $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A1', $carrera_alum);
+        
+        $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A2', 'NUM PROG.')
+                    ->setCellValue('B2', '# CONTROL')
+                    ->setCellValue('C2', 'NOMBRE')
+                    ->setCellValue('D2', 'CORREO ELECTRONICO')
+                    ->setCellValue('E2', 'NOMBRE DEL PROYECTO')
+                    ->setCellValue('F2', 'NOMBRE DE LA EMPRESA')
+                    ->setCellValue('G2', 'SEXO')
+                    ->setCellValue('I2', 'SECTOR')
+                    ->setCellValue('I3', 'PU')
+                    ->setCellValue('J3', 'PR')
+                    ->setCellValue('K3', 'IND')
+                    ->setCellValue('L3', 'SER');
+        
+        $contador = 4;
+        $sexoMas = 0;
+        $sexoFem = 0;
+        $sectorPu = 0;
+        $sectorPri = 0;
+        $sectorSo = 0;
+        $sectorEd = 0;
+        $num = 0;
+        foreach ($query->result() as $fila){
+            $num++;
+            $nombre = $fila->nombre .' '.$fila->apellido_paterno.' '.$fila->apellido_materno;
+            $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A'.$contador, $num)
+                    ->setCellValue('B'.$contador, $fila->numero_control)
+                    ->setCellValue('C'.$contador, $nombre)
+                    ->setCellValue('D'.$contador, $fila->email)
+                    ->setCellValue('E'.$contador, $fila->nombre_proyecto)
+                    ->setCellValue('F'.$contador, $fila->nombre_empresa);
+            
+            if($fila->giro_ramo_sector == "Público"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, 'X');
+                $sectorPu++;
+            }
+                    
+            if($fila->giro_ramo_sector == "Privado"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, 'X');
+                $sectorPri++;
+            }                  
+            
+            if($fila->giro_ramo_sector == "Industrial"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, 'X');
+                $sectorSo++;
+            }
+            
+            if($fila->giro_ramo_sector == "Servicios"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, 'X');
+                $sectorEd++;
+            }
+            
+            if($fila->sexo == "M"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.$contador, 'M');
+                $sexoMas++;
+            }
+            
+            if($fila->sexo == "F"){
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, 'F');
+                $sexoFem++;
+            }
+            $contador++;
+        }
+        
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A'.$contador.':F'.$contador);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$contador, 'TOTAL');
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.$contador, $sexoMas);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, $sexoFem);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, $sectorPu);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, $sectorPri);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, $sectorSo);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, $sectorEd);
+        
+        //Style
+        $styleArray = array(
+            'borders' => array(
+                'allborders' => array(
+                    'style' => PHPExcel_Style_Border::BORDER_THIN
+                )
+            )
+        );
+        
+        $styleBac1 = array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'A4A4A8')
+            )
+        );
+        
+        $styleBac2 = array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'D9D9D9')
+            )
+        );
+
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1:L'.$contador.'')->applyFromArray($styleArray);
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1')->applyFromArray($styleBac1);
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A2:L3')->applyFromArray($styleBac2);
+       // $objPHPExcel->getDefaultStyle()->applyFromArray($styleArray);
+        
+    
+        // Rename worksheet
+        $objPHPExcel->getActiveSheet()->setTitle('Formato_'.$carrera.'');
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $objPHPExcel->setActiveSheetIndex(0);
+        // Redirect output to a client’s web browser (Excel5)
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="Formato_'.$carrera.'.xls"');
+        header('Cache-Control: max-age=0');
+        // If you're serving to IE 9, then the following may be needed
+        header('Cache-Control: max-age=1');
+        // If you're serving to IE over SSL, then the following may be needed
+        header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+        header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+        header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header ('Pragma: public'); // HTTP/1.0
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
     }
 
     public function jefes_carrera() {
@@ -177,7 +353,8 @@ class internal_private extends CI_Controller {
             'telefono' => $this->input->post("telefono_residente"),
             'seguridad_social' => $this->input->post("seguridad_social"),
             'especifique' => $this->input->post("especifique"),
-            'numero_social' => $this->input->post("numero_social")
+            'numero_social' => $this->input->post("numero_social"),
+            'sexo' => $this->input->post("sexo")
         );
         
         $existUser = $this->login_model->check_user($data['numero_control']);

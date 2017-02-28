@@ -37,7 +37,8 @@ class internal_public extends CI_Controller {
             'telefono' => $this->input->post("telefono_residente"),
             'seguridad_social' => $this->input->post("seguridad_social"),
             'especifique' => $this->input->post("especifique"),
-            'numero_social' => $this->input->post("numero_social")
+            'numero_social' => $this->input->post("numero_social"),
+            'sexo' => $this->input->post("sexo")
         );
         
         $existUser = $this->login_model->check_user($data['numero_control']);

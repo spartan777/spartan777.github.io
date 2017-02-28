@@ -74,7 +74,9 @@
                     <li id="navAlum">
                         <a href="<?php echo base_url() ?>internal_private/alumnos"><i class="fa fa-fw fa-bar-chart-o"></i> Alumnos</a>
                     </li>
-                    
+                    <li id="navReporte">
+                        <a href="#" data-toggle="modal" data-target="#modalDescargarReporte"><i class="fa fa-fw fa-download"></i> Descargar Reporte</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -154,6 +156,9 @@
            });
         });
     </script>
+    <?php
+        include 'modal_descargar_archivo.php';
+    ?>
 
     <!-- Morris Charts JavaScript 
     <script src="js/plugins/morris/raphael.min.js"></script>
