@@ -47,10 +47,9 @@ class internal_private extends CI_Controller {
             case "energias":    $carrera_alum = "Ing. Energías Renovables";             break;
             case "general":     $carrera_alum = "Reporte General";                      break;
         }
-        // Create new PHPExcel object
+
         $objPHPExcel = new PHPExcel();
         
-        //Formatting
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:L1');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A2:A3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('B2:B3');
@@ -60,7 +59,7 @@ class internal_private extends CI_Controller {
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('F2:F3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('G2:H3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('I2:L2');
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(true);
+        /*$objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('C')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(true);
@@ -71,9 +70,8 @@ class internal_private extends CI_Controller {
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('I')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('J')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('K')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('L')->setAutoSize(true);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('L')->setAutoSize(true);*/
         
-        // Add some data
         $objPHPExcel->setActiveSheetIndex(0)
                     ->setCellValue('A1', $carrera_alum);
         
@@ -173,28 +171,25 @@ class internal_private extends CI_Controller {
                 'color' => array('rgb' => 'D9D9D9')
             )
         );
-
+        
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A2:L3')->applyFromArray($styleBac2);
         $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1:L'.$contador.'')->applyFromArray($styleArray);
         $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1')->applyFromArray($styleBac1);
-        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A2:L3')->applyFromArray($styleBac2);
-       // $objPHPExcel->getDefaultStyle()->applyFromArray($styleArray);
-        
-    
-        // Rename worksheet
+      
         $objPHPExcel->getActiveSheet()->setTitle('Formato_'.$carrera.'');
-        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+
         $objPHPExcel->setActiveSheetIndex(0);
-        // Redirect output to a client’s web browser (Excel5)
+
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="Formato_'.$carrera.'.xls"');
         header('Cache-Control: max-age=0');
-        // If you're serving to IE 9, then the following may be needed
+
         header('Cache-Control: max-age=1');
-        // If you're serving to IE over SSL, then the following may be needed
-        header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-        header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
-        header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
-        header ('Pragma: public'); // HTTP/1.0
+
+        header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+        header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
+        header ('Cache-Control: cache, must-revalidate'); 
+        header ('Pragma: public'); 
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
         $objWriter->save('php://output');
         exit;
