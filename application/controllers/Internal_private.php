@@ -59,13 +59,21 @@ class internal_private extends CI_Controller {
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('F2:F3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('G2:H3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('I2:L2');
-        /*$objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('C')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(true);
-        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(true);
+        
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('C')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(false);
+        
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(11);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(12);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('C')->setAutoSize(16);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(21);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(23);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(24);
+        /*$objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('H')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('I')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('J')->setAutoSize(true);
