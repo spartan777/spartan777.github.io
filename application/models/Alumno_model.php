@@ -20,14 +20,22 @@ class Alumno_model extends CI_Model {
     public function buscar_id_alumno($no_control) {
         $this->db->where('numero_control', $no_control);
         $query = $this->db->get('alumnos');
-        return $query;
+        if($query->num_rows > 0){
+            return $query;
+        }else{
+            return FALSE;
+        }
     }
     
     public function get_all_alumno(){
-        $query = $this->db->query("SELECT a.numero_control, a.nombre, a.apellido_paterno, a.apellido_materno, a.email, a.sexo, p.nombre_proyecto, e.nombre_empresa, e.giro_ramo_sector "
+        $query = $this->db->query("SELECT a.numero_control, a.nombre, a.apellido_paterno, a.apellido_materno, a.email, a.telefono, a.sexo, p.nombre_proyecto, e.nombre_empresa, e.giro_ramo_sector "
                 . "FROM alumnos a, proyecto p, empresa e "
                 . "WHERE p.no_control = a.numero_control AND e.no_control = a.numero_control");
-        return $query;
+        if($query->num_rows > 0){
+            return $query;
+        }else{
+            return FALSE;
+        }
     }
     
     public function descargar_reporte($carrera) {
@@ -36,7 +44,7 @@ class Alumno_model extends CI_Model {
         if((!is_null($carrera) and !empty($carrera))){
             $varQuery  = $varQuery." AND a.carrera = '$carrera'";
         }
-        $query = $this->db->query("SELECT a.numero_control, a.nombre, a.apellido_paterno, a.apellido_materno, a.email, a.sexo, p.nombre_proyecto, e.nombre_empresa, e.giro_ramo_sector "
+        $query = $this->db->query("SELECT a.numero_control, a.nombre, a.apellido_paterno, a.apellido_materno, a.email, a.telefono, a.sexo, p.nombre_proyecto, e.nombre_empresa, e.giro_ramo_sector "
                 . "FROM alumnos a, proyecto p, empresa e "
                 . "WHERE p.no_control = a.numero_control AND e.no_control = a.numero_control ".$varQuery);
         

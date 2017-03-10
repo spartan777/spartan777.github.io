@@ -50,15 +50,16 @@ class internal_private extends CI_Controller {
 
         $objPHPExcel = new PHPExcel();
         
-        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:L1');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:M1');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A2:A3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('B2:B3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('C2:C3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('D2:D3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('E2:E3');
         $objPHPExcel->setActiveSheetIndex(0)->mergeCells('F2:F3');
-        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('G2:H3');
-        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('I2:L2');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('G2:G3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('H2:I3');
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('J2:M2');
         
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setAutoSize(false);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(false);
@@ -66,6 +67,7 @@ class internal_private extends CI_Controller {
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(false);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(false);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(false);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(false);
         
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(11);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('B')->setAutoSize(12);
@@ -73,6 +75,7 @@ class internal_private extends CI_Controller {
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('D')->setAutoSize(21);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('E')->setAutoSize(23);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('F')->setAutoSize(24);
+        $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(15);
         /*$objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('G')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('H')->setAutoSize(true);
         $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension('I')->setAutoSize(true);
@@ -88,14 +91,15 @@ class internal_private extends CI_Controller {
                     ->setCellValue('B2', '# CONTROL')
                     ->setCellValue('C2', 'NOMBRE')
                     ->setCellValue('D2', 'CORREO ELECTRONICO')
-                    ->setCellValue('E2', 'NOMBRE DEL PROYECTO')
-                    ->setCellValue('F2', 'NOMBRE DE LA EMPRESA')
-                    ->setCellValue('G2', 'SEXO')
-                    ->setCellValue('I2', 'SECTOR')
-                    ->setCellValue('I3', 'PU')
-                    ->setCellValue('J3', 'PR')
-                    ->setCellValue('K3', 'IND')
-                    ->setCellValue('L3', 'SER');
+                    ->setCellValue('E2', 'TELÉFONO')
+                    ->setCellValue('F2', 'NOMBRE DEL PROYECTO')
+                    ->setCellValue('G2', 'NOMBRE DE LA EMPRESA')
+                    ->setCellValue('H2', 'SEXO')
+                    ->setCellValue('J2', 'SECTOR')
+                    ->setCellValue('J3', 'PU')
+                    ->setCellValue('K3', 'PR')
+                    ->setCellValue('L3', 'IND')
+                    ->setCellValue('M3', 'SER');
         
         $contador = 4;
         $sexoMas = 0;
@@ -105,57 +109,60 @@ class internal_private extends CI_Controller {
         $sectorSo = 0;
         $sectorEd = 0;
         $num = 0;
-        foreach ($query->result() as $fila){
-            $num++;
-            $nombre = $fila->nombre .' '.$fila->apellido_paterno.' '.$fila->apellido_materno;
-            $objPHPExcel->setActiveSheetIndex(0)
-                    ->setCellValue('A'.$contador, $num)
-                    ->setCellValue('B'.$contador, $fila->numero_control)
-                    ->setCellValue('C'.$contador, $nombre)
-                    ->setCellValue('D'.$contador, $fila->email)
-                    ->setCellValue('E'.$contador, $fila->nombre_proyecto)
-                    ->setCellValue('F'.$contador, $fila->nombre_empresa);
-            
-            if($fila->giro_ramo_sector == "Público"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, 'X');
-                $sectorPu++;
+        if($query != FALSE){
+            foreach ($query->result() as $fila){
+                $num++;
+                $nombre = $fila->nombre .' '.$fila->apellido_paterno.' '.$fila->apellido_materno;
+                $objPHPExcel->setActiveSheetIndex(0)
+                        ->setCellValue('A'.$contador, $num)
+                        ->setCellValue('B'.$contador, $fila->numero_control)
+                        ->setCellValue('C'.$contador, $nombre)
+                        ->setCellValue('D'.$contador, $fila->email)
+                        ->setCellValue('E'.$contador, $fila->telefono)
+                        ->setCellValue('F'.$contador, $fila->nombre_proyecto)
+                        ->setCellValue('G'.$contador, $fila->nombre_empresa);
+
+                if($fila->giro_ramo_sector == "Público"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, 'X');
+                    $sectorPu++;
+                }
+
+                if($fila->giro_ramo_sector == "Privado"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, 'X');
+                    $sectorPri++;
+                }                  
+
+                if($fila->giro_ramo_sector == "Industrial"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, 'X');
+                    $sectorSo++;
+                }
+
+                if($fila->giro_ramo_sector == "Servicios"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('M'.$contador, 'X');
+                    $sectorEd++;
+                }
+
+                if($fila->sexo == "M"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, 'M');
+                    $sexoMas++;
+                }
+
+                if($fila->sexo == "F"){
+                    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, 'F');
+                    $sexoFem++;
+                }
+                $contador++;
             }
-                    
-            if($fila->giro_ramo_sector == "Privado"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, 'X');
-                $sectorPri++;
-            }                  
-            
-            if($fila->giro_ramo_sector == "Industrial"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, 'X');
-                $sectorSo++;
-            }
-            
-            if($fila->giro_ramo_sector == "Servicios"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, 'X');
-                $sectorEd++;
-            }
-            
-            if($fila->sexo == "M"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.$contador, 'M');
-                $sexoMas++;
-            }
-            
-            if($fila->sexo == "F"){
-                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, 'F');
-                $sexoFem++;
-            }
-            $contador++;
         }
         
-        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A'.$contador.':F'.$contador);
+        $objPHPExcel->setActiveSheetIndex(0)->mergeCells('A'.$contador.':G'.$contador);
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$contador, 'TOTAL');
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.$contador, $sexoMas);
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, $sexoFem);
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, $sectorPu);
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, $sectorPri);
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, $sectorSo);
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, $sectorEd);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$contador, $sexoMas);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$contador, $sexoFem);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$contador, $sectorPu);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$contador, $sectorPri);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$contador, $sectorSo);
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('M'.$contador, $sectorEd);
         
         //Style
         $styleArray = array(
@@ -180,8 +187,8 @@ class internal_private extends CI_Controller {
             )
         );
         
-        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A2:L3')->applyFromArray($styleBac2);
-        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1:L'.$contador.'')->applyFromArray($styleArray);
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A2:M3')->applyFromArray($styleBac2);
+        $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1:M'.$contador.'')->applyFromArray($styleArray);
         $objPHPExcel->setActiveSheetIndex(0)->getStyle('A1')->applyFromArray($styleBac1);
       
         $objPHPExcel->getActiveSheet()->setTitle('Formato_'.$carrera.'');
